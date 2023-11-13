@@ -1,236 +1,353 @@
-body{
-    /*  */
-    background-image: url('./icons/LoginBack.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
-    background-attachment: fixed;
-    /*  */
+body {
+  /*  */
+  overflow: hidden;
+  background-image: linear-gradient(180deg, #00f3ff 0%, #00e3fe 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  /*  */
+}
+
+.mainBG{
+  position: absolute;
+  inset: 0 0 0 0;
+  background-image: url("./icons/LoginBack.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  background-attachment: fixed;
+  transition: all 3s  1s ease-in-out;
 
 }
 
-#LogForm{
-    background-color: rgba(27, 99, 150, 0.8);
-    width: 400px;
-    height: 500px;
-    top:20%;
-    left: 10%;
-    border-radius: 10px;
-    position: fixed;
-    box-shadow: 0 0 10px 0 rgba(197, 8, 8, 0.685);
-    padding: 20px;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-    text-align: left;
+
+
+ 
+.mainBGRight{
+
+  border-radius: 0%;
+
+  transition: all 1s ease-in-out;
+  animation: planeFlipFromLoginToSignup 1s forwards ease-in-out;
+
+
 }
-.form-group{
-    margin-bottom:1rem;
+ 
+
+@keyframes planeFlipFromLoginToSignup {
+  0%{
+    transform: rotateY(0deg) translateX(0%);
+
+  }
+
+  50%{
+    transform: rotateY(0) translateX(100%);
+  }
+  
+  55%{
+    transform: rotateY(0) translateX(100%);
+    opacity: 0;
+  }
+  60%{
+    transform: rotateY(180deg) translateX(-100%);
+    opacity: 0;
+  }
+  61%{
+    opacity: 1;
+    border-radius: 50%;
+
+  }
+  100%{
+    border-radius: 0;
+    transform: rotateY(180deg) translateX(0%);
+
+  }
+  
 }
 
-.form-control{
-    display:block;
-    width:100%;
-    padding:.375rem .75rem;
-    font-size:1rem;
-    line-height:1.5;
-    color:#495057;
-    background-color:#fff;
-    background-clip:padding-box;
-    border:1px solid #ced4da;
-    border-radius:.25rem;
-    transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out
-}
-.form-control:focus{
-    color:#495057;
-    background-color:#fff;
-    border-color:#80bdff;
-    outline:0;
-    box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
+.mainBGLeft{
+  border-radius: 0%;
+  transform: rotateY(180deg) translateX(0%);
+
+
+  transition: all 1s ease-in-out;
+  animation: planeFlipFromSignupToLogin 1s forwards ease-in-out;
+
 }
 
-.btn{
-    display:inline-block;
-    font-weight:400;
-    text-align:center;
-    white-space:nowrap;
-    vertical-align:middle;
-    user-select:none;
-    border:1px solid transparent;
-    padding:.375rem .75rem;
-    font-size:1rem;
-    line-height:1.5;
-    border-radius:.25rem;
-    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    color:#fff;
-    background-color:#007bff;
-    border-color:#007bff;
-    
+
+
+@keyframes planeFlipFromSignupToLogin {
+
+  0%{
+    transform: rotateY(180deg) translateX(0%);
+
+  }
+
+  50%{
+    transform: rotateY(180deg) translateX(100%);
+  }
+  
+  55%{
+    transform: rotateY(180deg) translateX(100%);
+    opacity: 0;
+  }
+  60%{
+    transform: rotateY(0) translateX(-100%);
+    opacity: 0;
+  }
+  61%{
+    opacity: 1;
+    border-radius: 50%;
+
+  }
+  100%{
+    border-radius: 0;
+    transform: rotateY(0deg) translateX(0%);
+
+  }
+  
+
 }
 
-.btn:hover{
-    color:#fff;
-    background-color:#0069d9;
-    border-color:#0062cc
+
+
+
+#LogForm {
+  background-color: rgba(27, 99, 150, 0.8);
+  width: 400px;
+  height: 500px;
+  top: 20%;
+  left: 10%;
+  border-radius: 10px;
+  position: fixed;
+  box-shadow: 0 0 10px 0 rgba(197, 8, 8, 0.685);
+  padding: 20px;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  /* animation: signup 1s; */
+}
+.form-group {
+  margin-bottom: 1rem;
 }
 
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
 
 @media screen and (max-width: 1200px) {
-    #LogForm{
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-    }
-
+  #LogForm {
+    animation: none;
+    top: 50%;
+    left: 50%;
+    /* transform: translateX(0wh); */
+    transform: translate(-50%, -50%);
+  }
 }
 
-*,::after,::before{
-    box-sizing:border-box
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 
+#forget {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+  position: relative;
 
-#forget{
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 10px;
-    position: relative;
-    
-    font-size: 12px;
+  font-size: 12px;
 }
 
-#forget:hover{
-    color: rgb(255, 0, 0);
-    text-decoration: underline;
-    cursor: pointer;
+#forget:hover {
+  color: rgb(255, 0, 0);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-#Loginbtn{
-    color: white;
-    width : 99%;
-    border-radius: 20px;
-    margin: 7px;
-   
+#Loginbtn {
+  color: white;
+  width: 99%;
+  border-radius: 20px;
+  margin: 7px;
 }
 
-#Loginbtn:hover{
-    background-color: rgb(0, 20, 152)
-
+#Loginbtn:hover {
+  background-color: rgb(0, 20, 152);
 }
 
 .google-login-button {
-    background-color: white;
-    color: black;
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 11px;
-    gap: 5px;
-    margin: 7px;
-  }
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  gap: 5px;
+  margin: 7px;
+}
 
-    .google-login-button:hover {
-        background-color: #c0b9b9;
-    }
-
+.google-login-button:hover {
+  background-color: #c0b9b9;
+}
 
 .google-login-button {
-    border: 2px solid #747474;
+  border: 2px solid #747474;
+}
+
+.face-login-button {
+  background-color: rgb(41, 0, 249);
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  gap: 5px;
+  margin: 7px;
+}
+
+.face-login-button:hover {
+  background-color: #0404ce;
+}
+
+.signupclass {
+  animation: signup 1s forwards;
+}
+
+.loginclass {
+  animation: login 1s forwards;
+}
+
+@keyframes signup {
+  from {
+    transform: translateX(0vw);
   }
-
-
-  .face-login-button {
-    background-color: rgb(41, 0, 249);
-    color: rgb(255, 255, 255);
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 11px;
-    gap: 5px;
-    margin: 7px;
-
+  to {
+    transform: translateX(50vw);
   }
+}
 
-    .face-login-button:hover {
-        background-color: #0404ce;
-    }
+@keyframes login {
+  from {
+    transform: translateX(50vw);
+  }
+  to {
+    transform: translateX(0vw);
+  }
+}
 
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 1.5em;
+}
 
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #9fccfa;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
+.slider:before {
+  position: absolute;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5em;
+  width: 1.5em;
+  inset: 0;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-  
-  
-   
+.switch input:checked + #log {
+  color: green;
+}
 
-    .switch {
-        font-size: 17px;
-        position: relative;
-        display: inline-block;
-        width: 3.5em;
-        height: 1.5em;
-      }
-      
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #0974f1;
+}
 
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        inset: 0;
-        background: #9fccfa;
-        border-radius: 50px;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      
-      .slider:before {
-        position: absolute;
-        content: "";
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1.5em;
-        width: 1.5em;
-        inset: 0;
-        background-color: white;
-        border-radius: 50px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      
+.switch input:checked + .slider:before {
+  transform: translateX(2em);
+}
 
-      .switch input:checked + #log{
-        color:green;
-      }
-      
-      .switch input:focus + .slider {
-        box-shadow: 0 0 1px #0974f1;
-      }
-      
-      .switch input:checked + .slider:before {
-        transform: translateX(2em);
-      }
-
-      .togglebox{
-        margin-left: 20%;
-      }
+.togglebox {
+  margin-left: 20%;
+}
