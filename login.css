@@ -8,16 +8,36 @@ body{
     /*  */
 
 }
+.card{
+  background-color:rgba(0, 0, 0, 0.8);
+  box-shadow:0 0 20px 0 rgba(197, 8, 8, 0.685) ;
+}
+#logoimg{
+    width: 125;
+    height: 50px;
+    margin-left: 10px;
+    padding: 10px;
+    cursor: pointer;
+
+}
+#menu{
+  
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+
+}
 
 #LogForm{
-    background-color: rgba(27, 99, 150, 0.8);
     width: 400px;
     height: 500px;
     top:20%;
     left: 10%;
     border-radius: 10px;
     position: fixed;
-    box-shadow: 0 0 10px 0 rgba(197, 8, 8, 0.685);
     padding: 20px;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
