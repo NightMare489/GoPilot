@@ -10,25 +10,13 @@
   <body>
     <div class="mainBG"></div>
     <div class="planeBox"></div>
-    
-    <div id="menu" class="card">
-    <div id="logo" >
-        <img src="icons/logo.png" alt="logo" id="logoimg">
-    </div>
-     
-    <!-- <div id="about">
-        <span id="abouttext">About</span>
-    </div>
-    <div id="login">
-        <span id="logintext">Login</span>
-    </div>
-    <div id="signup">
-        <span id="signuptext">Signup</span>
-    </div> -->
-</div>
-      
 
-    
+    <div id="menu" class="card">
+      <div id="logo">
+        <img src="icons/logo.png" alt="logo" id="logoimg" />
+      </div>
+    </div>
+
     <div id="LogForm" class="card">
       <span id="log">Login</span>
       <span class="togglebox"
@@ -36,30 +24,90 @@
           <input type="checkbox" id="chkbox" onclick="toggleSingup()" />
           <span class="slider"></span> </label
       ></span>
-      <span id="sign" style="margin-left: 20%">Signup</span><br /><br />
-      <form>
-        <div class="form-group">
-          <input type="email" class="form-control" placeholder="Enter email" />
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password" />
-        </div>
-        <br /><br />
-        <button type="button" class="btn" id="Loginbtn">Login</button>
-      </form>
-      <a href="login.html">
-        <center>
-          <span id="forget"><u>forget password?</u></span>
-        </center>
-      </a>
-      <div class="google-login-button">
-        <span>Log in with Google</span>
-      </div>
 
-      <div class="face-login-button">
-        <span>Log in with facebook</span>
+      <span id="sign" style="margin-left: 20%">Signup</span><br /><br />
+      <div id="blurgroup">
+        <div id="loginform">
+          <form>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter phone number"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+            <br /><br />
+            <button type="button" class="btn" id="Loginbtn">Login</button>
+          </form>
+          <a href="login.html">
+            <center>
+              <span id="forget"><u>forget password?</u></span>
+            </center>
+          </a>
+          <div class="google-login-button">
+            <span>Log in with Google</span>
+          </div>
+
+          <div class="face-login-button">
+            <span>Log in with facebook</span>
+          </div>
+        </div>
+
+        <div id="signupform" hidden>
+
+          <form>
+            <div class="form-group">
+              <input
+              type="text"
+                class="form-control"
+                placeholder="Enter Your name"
+              />
+            </div>
+            <div class="form-group">
+              <input
+              type="email"
+                class="form-control"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+              type="text"
+                class="form-control"
+                placeholder="Enter phone number"
+              />
+            </div>
+            
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Confirm Password"
+              />
+            </div>
+
+            <button type="button" class="btn" id="signupbtn">Signup</button>
+
+          </form>
+
+          
+        </div>
       </div>
     </div>
-
   </body>
 </html>

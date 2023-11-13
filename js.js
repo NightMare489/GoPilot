@@ -1,30 +1,66 @@
 function toggleSingup() {
     const logform = document.getElementById("LogForm");
-    const planeBox = document.getElementsByClassName("planeBox")[0];
     const mainBG = document.getElementsByClassName("mainBG")[0];
+    const signupform = document.getElementById("signupform");
+    const loginform = document.getElementById("loginform");
+    const blurgroup = document.getElementById("blurgroup");
 
   if (document.getElementById("chkbox").checked) {
-    try {
-        
-        planeBox.classList.remove("planeBoxLeft");
-        mainBG.classList.remove("mainBGLeft");
-    } catch (error) {
-        console.log("ماشي")
-    }
+      blurgroup.classList.add("blurgroup");
 
+    mainBG.classList.remove("mainBGLeft");
     logform.classList.add("signupclass");
-    planeBox.classList.add("planeBoxRight");
     mainBG.classList.add("mainBGRight");
-
     logform.classList.remove("loginclass");
+
+
+    setTimeout(()=>{
+        signupform.hidden = false;
+        loginform.hidden = true;
+
+
+    }, 40)
+
+    setTimeout(()=>{
+        blurgroup.classList.remove("blurgroup");
+    }, 1000)
+
+
   } else {
-    planeBox.classList.remove("planeBoxRight");
+    blurgroup.classList.add("blurgroup");
     mainBG.classList.remove("mainBGRight");
-
-    planeBox.classList.add("planeBoxLeft");
     mainBG.classList.add("mainBGLeft");
-
     logform.classList.add("loginclass");
     logform.classList.remove("signupclass");
+
+    setTimeout(()=>{
+        signupform.hidden = true;
+        loginform.hidden = false;
+
+    }, 40)
+
+    setTimeout(()=>{
+        blurgroup.classList.remove("blurgroup");
+    }, 1000)
+
+
   }
 }
+
+
+// loginform.classList.add("nonedisplay");
+// loginform.classList.remove("nonedisplay");
+// loginform.classList.add("blockdisplay");
+// loginform.classList.remove("blockdisplay");
+// loginform.classList.add("nonedisplay");
+
+
+
+
+
+// signupform.classList.add("nonedisplay");
+// signupform.classList.remove("nonedisplay");
+// signupform.classList.add("nonedisplay");
+
+
+// signupform.classList.remove("nonedisplay");
