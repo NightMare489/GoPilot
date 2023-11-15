@@ -24,71 +24,6 @@ body {
     cursor: pointer;
 
 }
-#menu{
-  background-color: #06283D;
-  margin: 0px;
-  padding: 0px;
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  align-items: center;
-  height: 60px;
-  
-}
-#aboutlink{
-  color: #0080C3;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  position: fixed;
-  top:5px;
-  text-decoration: none;
-  margin-left: 10px;
-}
-/* #rightblock{
-  margin-left: 70%;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-} */
-#LoginNav{
-  color: #0080C3;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  position: fixed;
-  top:5px;
-  left: 1300px;
-  text-decoration: none;
-  
-
-
-}
-#Coma{
-  color: #0080C3;
-  font-size: 20px;
-  padding: 10px;
-  position: fixed;
-  top:5px;
-  left: 1316px;
-  text-decoration: none;
-
-
-}
-#SignUpNav{
-  color: #0080C3;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  position: fixed;
-  top:5px;
-  right:3%;
-  text-decoration: none;
-  margin-left: 10px;
-
-}
 
 #LogForm{
     width: 400px;
@@ -136,10 +71,12 @@ body {
     background-color:#fff;
     background-clip:padding-box;
     border:1px solid #ced4da;
-    border-radius:.25rem;
+    border-radius:.5rem;
+
     transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
 .form-control:focus{
+    
     color:#495057;
     background-color:#fff;
     border-color:#ffffff;
@@ -300,13 +237,13 @@ body {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  color: #000;
+  background-color: #fff;
+  border-color: #000000;
 }
 
 .btn:hover {
-  color: #fff;
+  color: #000;
   background-color: #0069d9;
   border-color: #0062cc;
 }
@@ -320,6 +257,23 @@ body {
     transform: translate(-50%, -50%);
   }
 }
+
+
+.LogoImg{
+position: absolute;
+right: 6%;
+width: 200px;
+}
+
+.LogoImgLeft{
+  right:85%;
+}
+
+.LogoImgRight{
+  right: 2%;
+}
+
+
 
 *,
 ::after,
@@ -344,14 +298,16 @@ body {
 }
 
 #Loginbtn,#signupbtn {
-  color: white;
+  color: rgb(0, 0, 0);
   width: 99%;
   border-radius: 20px;
   margin: 7px;
 }
 
 #Loginbtn:hover , #signupbtn:hover {
-  background-color: rgb(0, 20, 152);
+  background-color: rgb(0, 0, 0);
+  color:#fff;
+  border-color: #000;
 }
 
 .google-login-button {
@@ -448,7 +404,7 @@ body {
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background: #ffffff;
+  background: #D9D9D9;
   border-radius: 50px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -462,7 +418,7 @@ body {
   height: 1.5em;
   width: 1.5em;
   inset: 0;
-  background-color: white;
+  background-color: #868181;
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);

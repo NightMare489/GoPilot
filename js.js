@@ -4,6 +4,8 @@ function toggleSingup() {
     const signupform = document.getElementById("signupform");
     const loginform = document.getElementById("loginform");
     const blurgroup = document.getElementById("blurgroup");
+    const Logoimg = document.getElementById("LOGOIMG");
+
 
   if (document.getElementById("chkbox").checked) {
       blurgroup.classList.add("blurgroup");
@@ -13,6 +15,8 @@ function toggleSingup() {
     mainBG.classList.add("mainBGRight");
     logform.classList.remove("loginclass");
 
+    Logoimg.classList.remove("LogoImgRight");
+    Logoimg.classList.add("LogoImgLeft");
 
     setTimeout(()=>{
         signupform.hidden = false;
@@ -32,6 +36,9 @@ function toggleSingup() {
     mainBG.classList.add("mainBGLeft");
     logform.classList.add("loginclass");
     logform.classList.remove("signupclass");
+
+    Logoimg.classList.remove("LogoImgLeft");
+    Logoimg.classList.add("LogoImgRight");
 
     setTimeout(()=>{
         signupform.hidden = true;
