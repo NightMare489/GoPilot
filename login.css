@@ -1,17 +1,20 @@
 
 body {
-  /*  */
   overflow: hidden;
-  background-image: linear-gradient(180deg, #00f3ff 0%, #00e3fe 100%);
+  background-image: url("./icons/BackGR.jpeg");
   background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
-  /*  */
 
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
 
 .card{
   background-color:rgba(0, 0, 0, 0.8);
-  box-shadow:0 0 20px 0 rgba(197, 8, 8, 0.685) ;
+  box-shadow:0 0 20px 0 rgba(0, 0, 0, 0.685) ;
 }
 #logoimg{
     width: 125;
@@ -22,13 +25,68 @@ body {
 
 }
 #menu{
-  
+  background-color: #06283D;
   margin: 0px;
   padding: 0px;
   position: fixed;
   width: 100%;
   top: 0px;
   left: 0px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  
+}
+#aboutlink{
+  color: #0080C3;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top:5px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+/* #rightblock{
+  margin-left: 70%;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+} */
+#LoginNav{
+  color: #0080C3;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top:5px;
+  left: 1300px;
+  text-decoration: none;
+  
+
+
+}
+#Coma{
+  color: #0080C3;
+  font-size: 20px;
+  padding: 10px;
+  position: fixed;
+  top:5px;
+  left: 1316px;
+  text-decoration: none;
+
+
+}
+#SignUpNav{
+  color: #0080C3;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top:5px;
+  right:3%;
+  text-decoration: none;
+  margin-left: 10px;
 
 }
 
@@ -36,7 +94,7 @@ body {
     width: 400px;
     height: 500px;
     top:20%;
-    left: 10%;
+    left: 7%;
     border-radius: 10px;
     position: fixed;
     padding: 20px;
@@ -84,7 +142,7 @@ body {
 .form-control:focus{
     color:#495057;
     background-color:#fff;
-    border-color:#80bdff;
+    border-color:#ffffff;
     outline:0;
     box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
 }
@@ -118,7 +176,7 @@ body {
 .mainBG{
   position: absolute;
   inset: 0 0 0 0;
-  background-image: url("./icons/LoginBack.jpg");
+  background-image: url("./icons/LoginBack.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -223,7 +281,7 @@ body {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #80bdff;
+  border-color: #ffffff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -347,11 +405,11 @@ body {
 }
 
 .signupclass {
-  animation: signup 1s forwards;
+  animation: signup 1.5s forwards;
 }
 
 .loginclass {
-  animation: login 1s forwards;
+  animation: login 1.5s forwards;
 }
 
 @keyframes signup {
@@ -359,7 +417,7 @@ body {
     transform: translateX(0vw);
   }
   to {
-    transform: translateX(50vw);
+    transform: translateX(60vw);
   }
 }
 
@@ -390,7 +448,7 @@ body {
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background: #9fccfa;
+  background: #ffffff;
   border-radius: 50px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -411,11 +469,11 @@ body {
 }
 
 .switch input:checked + #log {
-  color: green;
+  color: rgb(255, 255, 255);
 }
 
 .switch input:focus + .slider {
-  box-shadow: 0 0 1px #0974f1;
+  box-shadow: 0 0 1px #ffffff;
 }
 
 .switch input:checked + .slider:before {
