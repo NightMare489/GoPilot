@@ -37,6 +37,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     text-align: left;
+    z-index: 100;
     /* filter:blur(10px) */
 }
 .form-group{
@@ -248,22 +249,80 @@ body {
   border-color: #0062cc;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 620px) and (max-width: 1200px) {
+    #LOGOIMG{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    }
+
   #LogForm {
     animation: none;
     top: 50%;
     left: 50%;
     /* transform: translateX(0wh); */
-    transform: translate(-50%, -50%);
+    transform:  translate(-50%, -50%);
+    /* transform: scale(0.5); */
+
+  }
+}
+
+@media screen and (max-width:619px){
+  #LOGOIMG{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    }
+
+  #LogForm {
+    animation: none;
+    top: 40%;
+    left: 40%;
+    /* transform: translateX(0wh); */
+    transform-origin: center;
+    transform: scale(0.8) translate(-50%, -50%);
+    /* transform: scale(0.5); */
+
   }
 }
 
 
 .LogoImg{
 position: absolute;
-right: 6%;
+top:5%;
+right: 3%;
 width: 200px;
+z-index: 1;
+
 }
+
+
+.websites{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:4vh;
+}
+
+
+.loginwebsite{
+  overflow: hidden;
+  border-radius: 100%;
+  background-color: white;
+  width: 50px;
+  height: 50px; 
+  /* border: black 1px solid */
+}
+
+.loginWebsiteContent{
+  position: relative;
+  top:10%;
+  left: 10%;
+}
+
 
 .LogoImgLeft{
   right:85%;
