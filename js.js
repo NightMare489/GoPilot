@@ -15,6 +15,9 @@ function toggleSingup() {
     mainBG.classList.add("mainBGRight");
     logform.classList.remove("loginclass");
 
+    Logoimg.classList.remove("LogoImgRight");
+    Logoimg.classList.add("LogoImgLeft");
+
     setTimeout(()=>{
         signupform.hidden = false;
         loginform.hidden = true;
@@ -34,6 +37,8 @@ function toggleSingup() {
     logform.classList.add("loginclass");
     logform.classList.remove("signupclass");
 
+    Logoimg.classList.remove("LogoImgLeft");
+    Logoimg.classList.add("LogoImgRight");
 
     setTimeout(()=>{
         signupform.hidden = true;
