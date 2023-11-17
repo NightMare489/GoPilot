@@ -187,3 +187,20 @@
     padding-bottom: 10px;
   }
   
+  .hambruger{
+    display: none;
+  }
+
+  .menuItemDiv{
+    display: block;
+  }
+  @media screen and (max-width: 600px) {
+    
+    .menuItemDiv{
+      display: none;
+    }
+    .hambruger{
+      display: block;
+    }
+    
+  }
