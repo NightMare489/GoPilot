@@ -6,14 +6,13 @@
     <title>Booking</title>
     <link rel="stylesheet" href="./Booking.css">
     <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
-
 </head>
 <body style="background-color: white; background-image: none;">
      <div id="menu" class="card">
       <div id="logo">
         <img src="icons/navlogo.png" alt="logo" id="logoimg" />
       </div>
-      <div id="rightblock">
+      <div class="rightblock">
         <div >
             <a href="" class="menuItem" id="haha">Dashboard </a>
           </div>
@@ -53,7 +52,22 @@
     </label>
 </div>
 
+<select class="select">
+  <option value="0" selected disabled hidden aria-placeholder="Choose Your City">Choose Your City</option>
+  <option value="1">Cairo</option>
+  <option value="2">Aswan</option>
+  <option value="3">Sohag</option>
+  <option value="4">Hurghada</option>
+  <option value="5">Sharm El Sheikh</option>
+</select>
 
 </div>
+<div class="maindiv2">
+    <input type="text" class="Location" placeholder="Enter Your Location">
+    <a href="" id="map" style=" margin-left: -60px;">
+      <img src="icons/map.png" >
+    </a>
+</div>
+
 </body>
 </html>
