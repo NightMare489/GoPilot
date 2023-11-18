@@ -21,20 +21,25 @@
   text-decoration: none;
   color: #fff;
 }
-
+.main{
+ display: flex;
+  flex-direction: wrap row;
+}
 .maindiv{
   margin: 80px;
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  flex-flow: column;
+  /* align-items: center; */
   justify-content: center;
   gap: 20px;
 }
 .maindiv2{
 margin: 80px;
 display: flex;
+flex-direction: row;
+/* justify-content: center; */
 align-items: center;
-gap: 20px;
+gap: 150px;
 }
 
 .rightblock{
@@ -145,7 +150,7 @@ height: 40px;
 box-sizing: border-box;
 -webkit-appearance: none;
 -moz-appearance: none;
-margin-left:auto;
+/* margin-left:auto; */
 }
 
 select.select {
@@ -176,11 +181,12 @@ select.select {
   font: inherit;
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
-  width: 300px;
-  height: 50px;
+  width: 405px;
+  height: 60px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  min-width: 200px;
 }
 #map:hover{
   cursor: pointer;
@@ -203,4 +209,23 @@ select.select {
     display: block;
   }
   
+}
+.chooseBtn{
+  background-color: #0080C3;
+  border: 1px solid #000;
+  border-radius: 1.1rem;
+  display:flex;
+  cursor: pointer;
+  font: inherit;
+  padding: 1em;
+  width: 200px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.chooseBtn:hover{
+  background-color: #DFF6FF;
+  color: #000;
+  transition: 1s;
 }

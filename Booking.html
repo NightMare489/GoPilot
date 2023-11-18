@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./Booking.css">
     <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
 </head>
-<body style="background-color: white; background-image: none;">
+<body style="background-color: white; background-image: url('./icons/backback.png');background-repeat: no-repeat;background-attachment: scroll;background-size: cover;">
      <div id="menu" class="card">
       <div id="logo">
         <img src="icons/navlogo.png" alt="logo" id="logoimg" />
@@ -33,47 +33,70 @@
 
       </div>
       </div>
-      
-      <div class="maindiv">
 
+      <!-- <div style="display: flex;flex-direction: row;  flex-flow: row;"> -->
+      <!-- <div class="main">
+        <div style="display: flex;flex-direction: column;"> -->
 
-<div class="radio-inputs">
-    <label>
-        <input class="radio-input" type="radio" name="engine">
-            <span class="radio-tile">
-                <span class="radio-label">Travling</span>
-                <span class="radio-icon">
+          <div>  
+          <div class="maindiv">
+            <div class="radio-inputs">
+              <label>
+                <input class="radio-input" type="radio" name="engine">
+                <span class="radio-tile">
+                  <span class="radio-label">Travling</span>
+                  <span class="radio-icon">
                     <img src="./icons/airplane-takeoff.svg" alt="" width="40px" height="40px">
+                  </span>
                 </span>
-            </span>
-    </label>
-    <label>
-        <input checked="" class="radio-input" type="radio" name="engine">
-        <span class="radio-tile">
-            <span class="radio-icon">
-                <img src="./icons/airplane-arrival.svg" alt="" width="40px" height="40px">
-            </span>
-            <span class="radio-label">Returning</span>
-        </span>
-    </label>
-</div>
+              </label>
+              <label>
+                <input checked="" class="radio-input" type="radio" name="engine">
+                <span class="radio-tile">
+                  <span class="radio-icon">
+                    <img src="./icons/airplane-arrival.svg" alt="" width="40px" height="40px">
+                  </span>
+                  <span class="radio-label">Returning</span>
+                </span>
+              </label>
 
-<select class="select">
-  <option value="0" selected disabled hidden aria-placeholder="Choose Your City">Choose Your City</option>
-  <option value="1">Cairo</option>
-  <option value="2">Aswan</option>
-  <option value="3">Sohag</option>
-  <option value="4">Hurghada</option>
-  <option value="5">Sharm El Sheikh</option>
-</select>
 
-</div>
-<div class="maindiv2">
+
+            </div>
+            
+            <select class="select">
+              <option value="0" selected disabled hidden aria-placeholder="Choose Your City">Choose Your City</option>
+              <option value="1">Cairo</option>
+              <option value="2">Aswan</option>
+              <option value="3">Sohag</option>
+              <option value="4">Hurghada</option>
+              <option value="5">Sharm El Sheikh</option>
+            </select>
+            
+          </div>
+          <div class="maindiv2">
     <input type="text" class="Location" placeholder="Enter Your Location">
-    <a href="" id="map" style=" margin-left: -60px;">
+    <a href="" id="map" style=" margin-left: -200px;">
       <img src="icons/map.png" >
     </a>
+ 
+
+  </div>
+
+  <div class="maindiv2">
+    <button class="chooseBtn">
+      Choose Your Trip
+    </button>
+  </div>
+
+
+
 </div>
+
+
+
+  
+
 
 </body>
 </html>
