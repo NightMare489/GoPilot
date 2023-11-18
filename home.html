@@ -6,7 +6,38 @@
     <title>GOPilot</title>
     <link rel="stylesheet" href="home.css">
 </head>
-    <body>
+
+<script>
+
+Number.prototype.pad = function(n) {
+  for (var r = this.toString(); r.length < n; r = 0 + r);
+  return r;
+};
+
+function updateClock() {
+  var now = new Date();
+  var 
+    sec = now.getSeconds(),
+    min = now.getMinutes(),
+    hou = now.getHours(),
+    mo = now.getMonth(),
+    dy = now.getDate(),
+    yr = now.getFullYear();
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var tags = ["mon", "d", "y", "h", "m", "s"],
+    corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+  for (var i = 0; i < tags.length; i++)
+    document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+}
+
+function initClock() {
+  updateClock();
+  window.setInterval("updateClock()", 1000);
+}
+
+  </script>
+
+    <body onload="initClock()">
         <div id="menu" class="card">
          <div id="logo">
            <img src="icons/navlogo.png" alt="logo" id="logoimg" />
@@ -73,6 +104,22 @@
           </div>
 
       </div>
+      <div>
+       
+
+        <div id="timedate" >
+          <a id="mon">January</a>
+          <a id="d">1</a>,
+          <a id="y">0</a><br />
+          <a id="h">12</a> :
+          <a id="m">00</a>:
+          <a id="s">00</a>
+        </div>
+
+
+
+      </div>
+
 
 
 

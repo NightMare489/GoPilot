@@ -77,16 +77,9 @@ p,pre{
     top:5%;
     left:0%;
     color:white;
-    /* background-repeat: repeat-x; */
-    /* margin: 0px;
-    padding: 0px;
-    position: fixed;
-    top: 50px;
-    left: 0px; */
+
     background-image: url('./icons/BackGR.png');
     
-    /* display: flex; */
-    /* cursor: pointer; */
     z-index: -1;
   }
 
@@ -161,4 +154,17 @@ p,pre{
         max-width:90%;
     }
 
+  }
+
+  
+#timedate {
+    font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align:left;
+    width: 50%;
+    margin: 40px auto;
+    color:#fff;
+    float: left;
+    margin-left: 10%;
+    border-left: 3px solid #0080C3;
+    padding: 20px;
   }
