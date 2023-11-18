@@ -15,27 +15,31 @@
   align-items: center;
   height: 50px;
   margin-bottom: 100px;
-  z-index: 100;
 }
 
 #menu a{
   text-decoration: none;
   color: #fff;
 }
-
+.main{
+ display: flex;
+  flex-direction: wrap row;
+}
 .maindiv{
   margin: 80px;
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  flex-flow: column;
+  /* align-items: center; */
   justify-content: center;
   gap: 20px;
 }
 .maindiv2{
 margin: 80px;
 display: flex;
+flex-direction: row;
+/* justify-content: center; */
 align-items: center;
-gap: 20px;
+gap: 150px;
 }
 
 .rightblock{
@@ -145,8 +149,8 @@ height: 40px;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 -webkit-appearance: none;
--moz-appearance: none;
-margin-left:auto;
+-moz-appearance: none;
+/* margin-left:auto; */
 }
 
 select.select {
@@ -177,11 +181,12 @@ select.select {
   font: inherit;
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
-  width: 300px;
-  height: 50px;
+  width: 405px;
+  height: 60px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  min-width: 200px;
 }
 #map:hover{
   cursor: pointer;
@@ -205,84 +210,22 @@ select.select {
   }
   
 }
-@media screen and (min-width: 600px) {
-  
-  .sideBar{
-    display: none;
-  }
-  
-}
-
-
-
-
-.sideBar{
-
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  top: 49px;
-  right: 0px;
-  height: 100%;
+.chooseBtn{
+  background-color: #0080C3;
+  border: 1px solid #000;
+  border-radius: 1.1rem;
+  display:flex;
+  cursor: pointer;
+  font: inherit;
+  padding: 1em;
   width: 200px;
-  background-color: white;
-  filter:drop-shadow(0 0 0.5rem black);
-
-
-  transition: 0.5s;
-  overflow-x: hidden;
-  padding-top: 3px;
-  z-index: 1;
-
-}
-
-.sideBar.notactive{
-  /* display:none; */
-  right: -300px;
-}
-
-
-.sideBar.active{
-  /* display: block; */
-  right: 0px;
-  /* transition: 0.5s; */
-}
-
-
-.Hambrger{
-  color:white;
-}
-
-.Hambrger.active{
-  background-color: #fff;
-  border-radius: 20px;
-  color:black;
-  padding: 10px;
-}
-
-
-.SideBarItems{
-  display: flex;
-  flex-direction: column;
+  height: 50px;
   align-items: center;
-  /* gap: 20px; */
-
-}
-
-a{
-  text-decoration: none;
-  color:#0080C3;
-font-weight: bold;
-  /* color: black; */
-}
-
-.SideBarItemsDiv{
-  width: 100%;
-  padding-top: 10%;
-  padding-bottom: 10%;
   justify-content: center;
-  text-align: center;
-  align-items: center;
-  background-color: white;
-  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+.chooseBtn:hover{
+  background-color: #DFF6FF;
+  color: #000;
+  transition: 1s;
 }
