@@ -23,8 +23,7 @@
   color: #fff;
 }
 .main{
-  display: flex;
-   flex-direction: wrap row;
+ 
  }
 .maindiv{
   margin: 80px;
@@ -200,6 +199,23 @@ select.select {
 .menuItemDiv{
   display: block;
 }
+
+body{
+  background-color: white;
+   background-image: url('./icons/backback.png');
+   background-repeat: no-repeat;background-attachment: scroll;
+   background-size: cover;
+}
+
+@media screen and (max-width: 860px) {
+  body{
+    background-image:none;
+    /* background-color: black; */
+  }
+}
+
+
+
 @media screen and (max-width: 600px) {
   
   .menuItemDiv{
@@ -209,14 +225,55 @@ select.select {
     display: block;
   }
   
-}
-@media screen and (min-width: 600px) {
+} 
+ @media screen and (min-width: 600px) {
   
   .sideBar{
     display: none;
   }
   
 }
+
+
+
+
+
+@media screen and  (max-width: 450px){
+  .radio-inputs{
+    flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+  .Location{
+    max-width: 200px;
+    min-width: 200px;
+  }
+
+  .maindiv{
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .maindiv2{
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+  }
+
+
+
+} 
 
 
 
@@ -256,6 +313,7 @@ select.select {
 
 .Hambrger{
   color:white;
+  cursor: pointer;
 }
 
 .Hambrger.active{
