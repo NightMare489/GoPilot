@@ -137,7 +137,7 @@ p,pre{
   }
 
 
-#aboutush3{
+.aboutush3{
     text-align: justify;
     text-justify: inter-word;
     max-width:55%;
@@ -150,7 +150,7 @@ p,pre{
         display: none;
     }
 
-    #aboutush3{
+    .aboutush3{
         max-width:90%;
     }
 

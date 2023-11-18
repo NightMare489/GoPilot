@@ -6,11 +6,16 @@
     <title>Booking</title>
     <link rel="stylesheet" href="./Booking.css">
     <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+  <script type="text/javascript" src="Booking.js" defer></script>
+
 </head>
 <body style="background-color: white; background-image: none;">
      <div id="menu" class="card">
       <div id="logo">
-        <img src="icons/navlogo.png" alt="logo" id="logoimg" />
+        <a href="home.html">
+
+          <img src="icons/navlogo.png" alt="logo" id="logoimg" />
+        </a>
       </div>
       <div class="rightblock">
         <div class="menuItemDiv">
@@ -27,13 +32,30 @@
         </div>
 
         <div class="hambruger">
-          <a href="" class="menuItem Hambrger">☰</a>
+          <span id="hambruger" class="Hambrger" onclick="hambruger()">☰</span>
         </div>
         
 
       </div>
       </div>
       
+      <div id="sideBar" class="sideBar notactive">
+
+        <div class="SideBarItems">
+          <a  class="SideBarItemsDiv" href="" >
+            Dashboard 
+        </a>
+            <a  class="SideBarItemsDiv"  href="">Amr Asd</a>
+            <a  class="SideBarItemsDiv" href="">Log Out</a>
+
+
+        </div>
+
+
+
+      </div>
+
+
       <div class="maindiv">
 
 
