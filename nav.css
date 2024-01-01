@@ -55,17 +55,7 @@
   .menuItemDiv{
     display: block;
   }
-  body{
-    background-color: white;
-     background-image: url('./icons/footer.png');
-     background-repeat: no-repeat;background-attachment: scroll;
-     background-size: cover;
-  }
-  @media screen and (max-width: 860px) {
-    body{
-      background-image:none;
-    }
-  }
+ 
   @media screen and (max-width: 600px) {
     .menuItemDiv{
       display: none;
