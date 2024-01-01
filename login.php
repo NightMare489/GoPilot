@@ -9,7 +9,7 @@
   </head>
   <script type="text/javascript" src="js.js" defer></script>
   <body>
-    <a href="index.html">
+    <a href="index.php">
 
       <img src = "icons/LogoBlue.png" id="LOGOIMG" class="LogoImg"/>
     </a>
@@ -66,11 +66,11 @@
               />
             </div>
             <br /><br />
-            <a href="Home.html">
+            <a href="Home.php">
               <button type="button" class="btn" id="Loginbtn">Login</button>
             </a>
           </form>
-          <a href="login.html">
+          <a href="login.php">
             <center>
               <span id="forget"><u>forget password?</u></span>
             </center>

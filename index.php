@@ -15,6 +15,7 @@ Number.prototype.pad = function(n) {
 };
 
 function updateClock() {
+  
   var now = new Date();
   var 
     sec = now.getSeconds(),
@@ -73,7 +74,7 @@ function initClock() {
     to and from airports.
             </p>
     
-            <a href="login.html">
+            <a href="login.php">
             <button id="bookButton">
               Book Your Trip
             </button>

@@ -12,7 +12,7 @@
 <body>
      <div id="menu" class="card">
       <div id="logo">
-        <a href="index.html">
+        <a href="index.php">
 
           <img src="icons/navlogo.png" alt="logo" id="logoimg" />
         </a>
