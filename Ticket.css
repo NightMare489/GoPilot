@@ -1,0 +1,122 @@
+body{
+    background-color: white;
+     background-repeat: no-repeat;background-attachment: scroll;
+     background-size: cover;
+  }
+
+  #container{
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    width : 1100px;
+    height: 70%;
+  }
+
+  #level1{
+   border-top-right-radius: 50px ;
+   border-top-left-radius: 50px;
+
+  }
+
+  #Llev1{
+    float: right;
+    margin-right: 50px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #Llev1 p{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px;
+    color: white;
+  }
+
+
+
+  #level2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    width: 1098px;
+    background-color: #DFF6FF;
+    border: #000 1px solid;
+  }
+
+  #level2 p{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px;
+    color: #1E1E1E;
+  }
+
+
+    #level3{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 300px;
+        width: 1100px;
+        }
+    .conlev3{
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        border: #000 1px solid;
+    }
+
+    .conlev3 p{
+        margin-left: 40px;
+    }  
+
+    .conlev3 .label{
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0px;
+        color: #999797;
+        margin: 0px 0px 0px 40px;
+    }  
+
+    
+    .conlev3 .value{
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0px;
+        color: #0080C3;
+        margin: 0px 0px 0px 40px;
+    }  
+
+
+
+    #level4{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100px;
+        width: 1098px;
+        border: #000 1px solid;
+        background-color:#DFF6FF ;
+        border-bottom-left-radius:  50px ;
+        border-bottom-right-radius:  50px ;
+        }
+
+        #level4 div{
+        background-color: #0080C3;
+        border-radius: 50px;
+        width: 200px;
+        height: 50% ;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        
+        
+        }
