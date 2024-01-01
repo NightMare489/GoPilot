@@ -111,3 +111,21 @@ function positionCalendar() {
 window.addEventListener("resize", positionCalendar);
 
 renderCalendar();
+positionCalendar();
+
+
+function minus(e){
+  var input = document.getElementsByClassName("NumOfPersons");
+  var value = input[e].value;
+  if(value>1&&e==0)
+    value--;
+  if(e==1&&value>0)
+    value--;
+  input[e].value = value;
+}
+function plus(e){
+  var input = document.getElementsByClassName("NumOfPersons");
+  var value = input[e].value;
+  value++;
+  input[e].value = value;
+}
