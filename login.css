@@ -498,3 +498,46 @@ z-index: 1;
 .togglebox {
   margin-left: 20%;
 }
+
+
+#errorBox{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom:0%;
+  right:2%; 
+  opacity: 0;
+  background-color: #cc0000; 
+  border-top-left-radius:50px;
+  border-bottom-right-radius:30px;
+  border-top-right-radius:30px;
+  border-bottom-left-radius:50px;
+  position:absolute;
+   width:300px;
+  height:80px; 
+  z-index:100; 
+  color: white; 
+}
+
+@keyframes slideInFromRight {
+  0% {
+
+    opacity: 0;
+  }
+  100% {
+
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  0% {
+
+    opacity: 1;
+  }
+  100% {
+
+    opacity: 0;
+  }
+}
