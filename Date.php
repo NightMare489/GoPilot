@@ -73,7 +73,7 @@ include"nav.php";
 <!-- Mdiv -->
     <div>
         <p>
-          Date:<br>
+          Time:<br>
         </p>
     </div>
 <!--  -->
