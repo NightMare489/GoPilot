@@ -26,7 +26,7 @@
             <a href="./Dash.php" class="menuItem" id="haha">Dashboard </a>
           </div>
         <div class="menuItemDiv" >
-          <a href="" class="menuItem"><?php echo $username ?></a>
+          <a href="Profile.php" class="menuItem"><?php echo $username ?></a>
         </div>
         <div class="menuItem menuItemDiv" id="coma">|
         </div>
