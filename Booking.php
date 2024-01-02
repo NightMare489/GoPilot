@@ -22,10 +22,7 @@
 
 
   ?>
-   
-  <?php
-  include("./nav.php");
-  ?>
+  
   <div class="mn">
 
       <div class="main">  
