@@ -123,12 +123,20 @@
     </div>
     <!-- level 3 -->
     <div id="level3">
-    <div class="conlev3" style="width: 50%; height:83%">
+    <div class="conlev3" style="width: 50%; height:83%;background-color: #DFF6FF;">
         <p class="label" style="margin-top: 20px;">Date</p>
         <p class="value" style="margin-bottom: 30px;">7/2/2024</p>
 
         <p class="label" style="margin-top: 30px;">Meet Captain at</p>
         <p class="value">7:00 AM</p>
+    </div>
+
+    <div class="conlev3" style="width: 50%; height:83%">
+        <p class="label" style="margin-top: 20px;">number of persons </p>
+        <p class="value" style="margin-bottom: 30px;">2 Persons</p>
+
+        <p class="label" style="margin-top: 30px;">Number of bags</p>
+        <p class="value">4 bags</p>
     </div>
     
      <div class="conlev3" style="background-color: #DFF6FF; width:50%;height:83%">
