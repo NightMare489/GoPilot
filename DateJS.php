@@ -1,3 +1,4 @@
+<script>
 
 const daysContainer = document.getElementById("daysContainer");
 const prevBtn = document.getElementById("prevBtn");
@@ -18,26 +19,58 @@ function handleDayClick(day) {
   dateInput.value = selectedDate.toLocaleDateString("en-US");
   calendar.style.display = "none";
   renderCalendar();
+
+
+  let date = selectedDate;
+
+  let year1 = date.getFullYear();
+  let month1 = date.getMonth() + 1; 
+  let day1 = date.getDate();
+
+
+  month1 = month1 < 10 ? '0' + month1 : month1;
+  day1 = day1 < 10 ? '0' + day1 : day1;
+
+  let formattedDate = year1 + '-' +month1 + '-' + day1;
+
+
+  window.location.replace("./Date.php?status=<?php echo $status ?>&airport=<?php echo $airport ?>&location=" + encodeURIComponent("<?php echo $location ?>") + "&lat=<?php echo $lat ?>&long=<?php echo $long ?>&date="+formattedDate);
+  console.log(formattedDate);
+
+
 }
 
-function createDayElement(day) {
-  const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-  const dayElement = document.createElement("div");
-  dayElement.classList.add("day");
+  function createDayElement(day) {
+    const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+    const dayElement = document.createElement("div");
+    dayElement.classList.add("day");
 
-  if (date.toDateString() === new Date().toDateString()) {
-    dayElement.classList.add("current");
-  }
-  if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
-    dayElement.classList.add("selected");
+    if (date.toDateString() === new Date().toDateString()) {
+      dayElement.classList.add("current");
+    }
+
+    <?php
+
+    if(isset($_GET["date"])):
+        $SelectedDate = $_GET["date"];
+        echo "const selectedDate = new Date('<?php echo $SelectedDate; ?>');";
+
+        echo 'if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
+          dayElement.classList.add("selected");
+        }';
+
+
+      endif;
+
+    ?>
+
+    dayElement.textContent = day;
+    dayElement.addEventListener("click", () => {
+      handleDayClick(day);
+    });
+    daysContainer.appendChild(dayElement);
   }
 
-  dayElement.textContent = day;
-  dayElement.addEventListener("click", () => {
-    handleDayClick(day);
-  });
-  daysContainer.appendChild(dayElement);
-}
 
 function renderCalendar() {
   daysContainer.innerHTML = "";
@@ -74,6 +107,7 @@ nextBtn.addEventListener("click", () => {
 dateInput.addEventListener("click", () => {
   calendar.style.display = "block";
   positionCalendar();
+  
 });
 
 document.addEventListener("click", (event) => {
@@ -109,3 +143,7 @@ function plus(e){
   value++;
   input[e].value = value;
 }
+
+
+
+ </script>

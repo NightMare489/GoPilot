@@ -94,11 +94,11 @@
           
           <select name="airport" class="select">
             <option value="0" selected disabled hidden aria-placeholder="Choose Your City">Choose The Airport</option>
-            <option value="1">Cairo</option>
-            <option value="2">Aswan</option>
-            <option value="3">Sohag</option>
-            <option value="4">Hurghada</option>
-            <option value="5">Sharm El Sheikh</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Aswan">Aswan</option>
+            <option value="Sohag">Sohag</option>
+            <option value="Hurghada">Hurghada</option>
+            <option value="Sharm El Sheikh">Sharm El Sheikh</option>
           </select>
           
 

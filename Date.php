@@ -7,13 +7,41 @@
     <link rel="stylesheet" href="./Date.css?v=<?php echo time(); ?>">
 
     <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
-  <script type="text/javascript" src="Date.js" defer></script>
+  <!-- <script type="text/javascript" src="Date.js" defer></script> -->
 
 </head>
 <body>
 <!-- app bar -->
 <?php
-include"nav.php";
+include "nav.php";
+include 'backend/conn.php';
+
+if($_SERVER["REQUEST_METHOD"] =="GET"){
+    
+  $status = $_GET["status"];
+  $airport = $_GET["airport"];
+  $lat = $_GET["lat"];
+  $long = $_GET["long"];
+  $location = $_GET["location"];
+
+  $date = $_GET["date"];
+
+  if($date == ""){
+    $date = date("Y-m-d");
+  }
+
+  if(!($status && $airport && $lat && $long)){
+    header("location:./Booking.php");
+  }
+
+$clouseStatus = "f_from";
+
+  if($status == "Returning"){
+      $clouseStatus = "f_to"; 
+  }
+}
+
+
 ?>
 <!-- end of app bar -->
 
@@ -21,7 +49,12 @@ include"nav.php";
 <!-- calender -->
       <div class="calendar-box">
         <p class="calendar-title" style="font-size:x-large; font-weight:bold; font-family:Arial, Helvetica, sans-serif;">Date of The Trip</p>
-        <input type="text" id="dateInput" placeholder="Select a date" >
+        <input type="text" id="dateInput" readonly placeholder="Select a date" value= <?php
+              $formattedDate = new DateTime($date);
+              echo $formattedDate->format('d/m/Y');;
+
+        
+        ?> >
         <div class="calendar" id="calendar">
           <div class="header">
             <button id="prevBtn">&lt;</button>
@@ -55,25 +88,38 @@ include"nav.php";
   </button>
 </div>
  <!-- end of Number of  -->
-
-
  </div>
 
 
+<?php
+
+
+
+    $query="SELECT * FROM flights WHERE $clouseStatus = '$airport' AND f_date='$date';";
+
+    $stmt=$pdo->prepare($query);
+    $stmt->execute();
+    
+    $results=$stmt->fetchAll();
+    
+
+    foreach($results as $row) :
+
+?>
 
 <!-- flight card -->
 <div  class="flightCard" style="margin-top:120px;margin-left:100px; display:flex; flex-direction: row; align-items: center; gap: 120px;">
   <!-- Ldiv -->
     <div>
       <p>
-        Flight Number:<br>
+        Flight Number: <?php echo $row['flightnumber']; ?><br>
       </p>
     </div>
 <!--  -->
 <!-- Mdiv -->
     <div>
         <p>
-          Time:<br>
+          Time: <?php echo $row['f_time'] ?><br>
         </p>
     </div>
 <!--  -->
@@ -84,7 +130,7 @@ include"nav.php";
             From:
           </p>
           <p>
-            Bla Bla Bla
+          <?php echo $row['f_from'] ?>
           </p>
         </div>
 
@@ -93,7 +139,7 @@ include"nav.php";
             To:
           </p>
           <p>
-            Bla Bla Bla
+          <?php echo $row['f_to'] ?>
           </p>
         </div>
 
@@ -101,10 +147,14 @@ include"nav.php";
 <!--  -->
 
 </div>
+
+<?php
+endforeach;
+  
+?>
 <!-- end of flight card -->
 
-
-
+<?php include "DateJS.php" ?>
 
 
 
