@@ -23,6 +23,11 @@
 
   ?>
    
+  <?php
+  include("./nav.php");
+  ?>
+  <div class="mn">
+
       <div class="main">  
 
   <form action="./Date.php" onsubmit="return validateBooking()">
@@ -162,7 +167,6 @@
       }
       return true;
     }
-    
     function onMapClick(e) {
       if(marker != null){
         map.removeLayer(marker);
@@ -187,23 +191,33 @@
       })
       .catch(error => console.error(error));
     }
-    
-
   </script>
-
 </div>
-
-
 <div class="maindiv2">
-
   <button type="submit" class="chooseBtn">
     Choose Your Trip
   </button>
-
+</div>
+</form>
 </div>
 
-</form>
 
+<div id="Rdiv">
+  <center>
+  <p style="font-size:35px;font-weight:bold;color:black;">How to Use</p>    
+  </center>
+  <p class="bla">
+<strong>Traviling:</strong> choose the 
+airport that you will 
+travel from and <em>in location</em> 
+put your location that you will 
+meet captain at
+  </p>
+  <p class="bla"><strong>Returning:</strong> chose the airport that 
+your plane willl land in , <em>in location</em>
+put your distination that you need
+the captain to take you to</p>
+</div>
 
 
 </div>
@@ -212,9 +226,5 @@
 <div id="errorBox" >
          <center> <p id="errorMsg"></p><center>
     </div>
-
-
-
-
 </body>
 </html>
