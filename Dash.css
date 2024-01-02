@@ -13,7 +13,14 @@
     flex-direction: row;
     justify-content: space-between;
     border-radius: 30px;
+    margin-top: 30px;   
 }
+
+.ticket:hover{
+    background-color: #002A40;
+    cursor: pointer;
+}
+
 #level1{
     margin-left: 20px;
 }

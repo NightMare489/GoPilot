@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Ticket.css?v=<?php echo time(); ?>">
 
+
     <title>Ticket</title>
 </head>
 <body>
@@ -41,36 +42,129 @@
         $flightDepartureDate = $results[0]["f_date"];
         $flightDepartureTime = $results[0]["f_time"];
         $flightDuration = $results[0]["f_timeTaken"];
-
+        
+        
 
         
-        $origin = urlencode("40.6655101,-73.89188969999998");
-        $destination = urlencode("40.6905615,-73.9976592");
+        $origin = null;
+        $destination = null;
 
+
+        $query="SELECT * FROM airports WHERE name=:airportname";
+        $stmt=$pdo->prepare($query);
+
+        if($status == "Traveling"){
+            
+            $stmt->bindParam(":airportname",$airportFrom);
+            $stmt->execute();
+            $results=$stmt->fetchAll();
+            $origin = urlencode($results[0]["lat"].",".$results[0]["lon"]);
+            $destination = urlencode($lat.",".$long);
+        }else{
+            $stmt->bindParam(":airportname",$airportTo);
+            $stmt->execute();
+            $results=$stmt->fetchAll();
+            $origin = urlencode($lat.",".$long);
+            $destination = urlencode($results[0]["lat"].",".$results[0]["lon"]);
+
+        }
+      
         $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=$origin&destinations=$destination&key=AIzaSyDJs1Pk4vKCGlr9RFXgxF7rOJ1ToG3jAew";
-
+        
         $response = file_get_contents($url);
         $data = json_decode($response, true);
-
-        if (!empty($data['rows'][0]['elements'][0]['distance'])) {
-            $distance = $data['rows'][0]['elements'][0]['distance']['text'];
-            echo "The driving distance is: $distance";
-        } else {
-            echo "Error: Something went wrong";
-        }
         
+        if (!empty($data['rows'][0]['elements'][0])) {
+                $distanceVal = $data['rows'][0]['elements'][0]['distance']['value'];
+                $distanceTxt = $data['rows'][0]['elements'][0]['distance']['text'];
+
+                $durationVal = $data['rows'][0]['elements'][0]['duration']['value'];
+                $durationTxt = $data['rows'][0]['elements'][0]['duration']['text'];
+                
+                
+            }
+            
+                
+        
+        // travelling
+        if($status == "Traveling"){
+        $timestamp = strtotime($flightDepartureDate . " " . $flightDepartureTime . " - 2 hours -$durationVal seconds");
+        $timestamp = floor($timestamp / (5 * 60)) * (5 * 60);
+        $meetCaptinDateTime = date("Y-m-d H:i", $timestamp);
+        }else{
+
+        //returning          
+        $meetCaptinDateTime = date("Y-m-d H:i:s", strtotime($flightDepartureDate . " " . $flightDepartureTime ."+ 15 minutes"));
+        $flightDurationInSeconds = strtotime($flightDuration) - strtotime('00:00:00');
+        $meetCaptinDateTime = date("Y-m-d H:i:s", strtotime($meetCaptinDateTime) + $flightDurationInSeconds );
+        $rem = strtotime($meetCaptinDateTime) % 300;
+        $meetCaptinDateTime = date("Y-m-d H:i:s", strtotime($meetCaptinDateTime) + (300-$rem) );
+        }
 
 
-        $meetCaptinDate = date("Y-m-d",strtotime($flightDepartureDate));
-        $meetCaptinTime = date("H:i:s",strtotime($flightDepartureTime."- 2 hours"));
+        // price
 
-        echo $meetCaptinDate. " ".$meetCaptinTime;
+        if($numPersons<=4){
+            $price = $distanceVal/1000.0 *3 + $numBags*5 +25;
+        }else if($numPersons<=8){
+            $price = $distanceVal/1000.0 *3 + $numBags*5 +50;
+        }else{
+            $price = $distanceVal/1000.0 *2.5 + $numBags*5 +35;
+        }
 
+        $price = round($price,0);
 
         if(($numPersons==='' || $numBags==='' ||  $flightId==='' || $status ===''|| $location===''|| $lat==='' || $long==='')){
             header("location:./Booking.php");
         }
+
+
+        //location
+        if($status == "Returning"){
+            $locationFrom = $airportTo." Airport";
+            $locationTo = $location;
+            
+        }else{
+
+            $locationFrom = $location;
+            $locationTo = $airportFrom." Airport";
+         }
+
+         //ticket
+         $letters = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
+         $numbers = substr(str_shuffle("0123456789"), 0, 5);
+         $TicketID = $letters . $numbers;
+    }else{
+
+        $TicketID = $_GET["TicketID"]??"";
+        if($TicketID == ""){
+            header("location:./Dash.php");
+        }
+
+        $query="SELECT * FROM tickets WHERE TicketID=:id;";
+        $stmt=$pdo->prepare($query);
+        $stmt->bindParam(":id",$TicketID);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        if(count($result)> 0){
+            $numPersons = $result[0]["T_Persons"];
+            $numBags = $result[0]["T_bags"];
+            $price = $result[0]["T_Price"];
+            $Date = $result[0]["T_date"];
+            $Time = $result[0]["T_Time"];
+            $durationTxt = $result[0]["T_ET"];
+            $locationFrom = $result[0]["T_from"];
+            $locationTo = $result[0]["T_To"];
+
+            $meetCaptinDateTime = date("Y-m-d H:i:s",strtotime($Date." ".$Time));
+        }else{
+            header("location:./Dash.php");
+        
+
+        
+
     }
+}
 
     ?>
 
@@ -86,9 +180,7 @@
       <div id="Llev1">
             <p style="margin-bottom: 0px;">Your Ticket ID</p>
             <p style="margin-top: 5px ;"><?php
-            $letters = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
-            $numbers = substr(str_shuffle("0123456789"), 0, 5);
-            $TicketID = $letters . $numbers;
+
 
             echo $TicketID;
 ?></p>
@@ -100,24 +192,16 @@
     <!-- level 2 -->
     <div id="level2">
        
-    <p><?php      
-    if($status == "Returning"){
-        echo $airportTo." Airport";
-        
-    }else{
-        echo $location;
-     } ?></p>
+    <p>
+        <?php      
+    echo $locationFrom;
+    ?></p>
 
      <img src="icons/Car.svg" alt="car" id="Car">
 
      <p id="Ltext"><?php
      
-     if($status == "Returning"){
-         echo $location;
-         
-    }else{
-        echo $airportFrom." Airport";
-     }
+        echo $locationTo;
      ?></p>
 
     </div>
@@ -125,31 +209,44 @@
     <div id="level3">
     <div class="conlev3" style="width: 50%; height:83%;background-color: #DFF6FF;">
         <p class="label" style="margin-top: 20px;">Date</p>
-        <p class="value" style="margin-bottom: 30px;">7/2/2024</p>
+        <p class="value" style="margin-bottom: 30px;">
+        <?php
+            echo Date("d/m/Y",strtotime($meetCaptinDateTime));
+
+        ?></p>
 
         <p class="label" style="margin-top: 30px;">Meet Captain at</p>
-        <p class="value">7:00 AM</p>
+        <p class="value">
+        <?php
+            echo Date("h:i A",strtotime($meetCaptinDateTime));
+            ?>
+        </p>
     </div>
 
     <div class="conlev3" style="width: 50%; height:83%">
-        <p class="label" style="margin-top: 20px;">number of persons </p>
-        <p class="value" style="margin-bottom: 30px;">2 Persons</p>
+        <p class="label" style="margin-top: 20px;">Number of Persons </p>
+        <p class="value" style="margin-bottom: 30px;"><?php echo $numPersons?></p>
 
-        <p class="label" style="margin-top: 30px;">Number of bags</p>
-        <p class="value">4 bags</p>
+        <p class="label" style="margin-top: 30px;">Number of Bags</p>
+        <p class="value"><?php echo $numBags?></p>
     </div>
     
      <div class="conlev3" style="background-color: #DFF6FF; width:50%;height:83%">
      <p class="label" style="margin-top: 20px;">Expected Time</p>
-        <p class="value" style="margin-bottom: 30px;">2 hrs</p>
+        <p class="value" style="margin-bottom: 30px;"><?php echo $durationTxt ?></p>
 
         <p class="label" style="margin-top: 30px;">Price</p>
-        <p class="value">85 L.E (+ 15 taxes)</p>
+        <p class="value"><?php echo $price ?> L.E</p>
      </div>
     </div>
     <!-- level 4 -->
     <div id="level4">
-        <div>
+        <div <?php 
+            if($_SERVER["REQUEST_METHOD"] =="GET"){
+                echo "style='display:none'";
+            }
+        
+        ?> onclick="handleConfirmTicket()">
              Confirm
         </div>
     </div>
@@ -157,5 +254,58 @@
 
     </div>
     
+
+     <script>
+
+        function handleConfirmTicket() {
+            let numPersons = "<?php echo $numPersons ?>";
+            let numBags = "<?php echo $numBags ?>";
+            let flightId = "<?php echo $flightId ?>";
+            let locationFrom = "<?php echo $locationFrom ?>";
+            let locationTo = "<?php echo $locationTo ?>";
+            let lat = "<?php echo $lat ?>";
+            let long = "<?php echo $long ?>";
+            let price = "<?php echo $price ?>";
+            let ticketId = "<?php echo $TicketID ?>";
+            let date = "<?php echo Date("Y-m-d",strtotime($meetCaptinDateTime)); ?>";
+            let time = "<?php echo Date("h:i:s",strtotime($meetCaptinDateTime)); ?>";
+            let duration = "<?php echo $durationTxt ?>";
+
+            let form = document.createElement('form');
+            form.action = 'backend/ConfirmTicket.php';
+            form.method = 'POST';
+            form.style.display = 'none';
+
+            let data = {
+                'numPersons': numPersons,
+                'numBags': numBags,
+                'flightId': flightId,
+                'locationFrom': locationFrom,
+                'locationTo': locationTo,
+                'lat': lat,
+                'long': long,
+                'price': price,
+                'TicketID': ticketId,
+                'date': date,
+                'time': time,
+                'duration': duration
+            };
+
+            for (let name in data) {
+                let input = document.createElement('input');
+                input.name = name;
+                input.value = data[name];
+                form.appendChild(input);
+            }
+
+            document.body.appendChild(form);
+
+            form.submit();
+
+
+        }
+
+     </script>
+
 </body>
 </html>

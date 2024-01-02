@@ -23,7 +23,7 @@
       </div>
       <div class="rightblock">
         <div class="menuItemDiv">
-            <a href="" class="menuItem" id="haha">Dashboard </a>
+            <a href="./Dash.php" class="menuItem" id="haha">Dashboard </a>
           </div>
         <div class="menuItemDiv" >
           <a href="" class="menuItem"><?php echo $username ?></a>
@@ -41,7 +41,7 @@
 
       <div id="sideBar" class="sideBar notactive">
         <div class="SideBarItems">
-          <a  class="SideBarItemsDiv" href="" >
+          <a  class="SideBarItemsDiv" href="./Dash.php" >
             Dashboard 
         </a>
             <a  class="SideBarItemsDiv"  href=""><?php echo $username ?></a>

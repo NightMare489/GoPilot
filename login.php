@@ -62,6 +62,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         $_SESSION['success'] = True;
         $_SESSION['username'] = $user['name'];
+        $_SESSION['usernameID'] = $user['id'];
 
         
         header("location:./Booking.php");

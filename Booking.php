@@ -12,6 +12,7 @@
 </head>
 <body>
   <?php
+  include "nav.php";
   session_start();
   if (isset($_SESSION["username"]) && $_SESSION["username"]!=""){
       $username=$_SESSION["username"];
@@ -21,48 +22,7 @@
 
 
   ?>
-     <div id="menu" class="card">
-      <div id="logo">
-        <a href="index.php">
-
-          <img src="icons/navlogo.png" alt="logo" id="logoimg" />
-        </a>
-      </div>
-      <div class="rightblock">
-        <div class="menuItemDiv">
-            <a href="" class="menuItem" id="haha">Dashboard </a>
-          </div>
-        <div class="menuItemDiv" >
-          <a href="" class="menuItem"><?php echo $username ?></a>
-        </div>
-        <div class="menuItem menuItemDiv" id="coma">
-          |
-        </div>
-        <div class="menuItemDiv">
-          <a href="./backend/logout.php" class="menuItem">Log Out</a>
-        </div>
-
-        <div class="hambruger">
-          <span id="hambruger" class="Hambrger" onclick="hambruger()">☰</span>
-        </div>
-        
-
-      </div>
-      </div>
-      
-      <div id="sideBar" class="sideBar notactive">
-
-        <div class="SideBarItems">
-          <a  class="SideBarItemsDiv" href="" >
-            Dashboard 
-        </a>
-            <a  class="SideBarItemsDiv"  href=""><?php echo $username ?></a>
-            <a href='./backend/logout.php' class="SideBarItemsDiv" href="">Log Out</a>
-
-
-        </div>
-      </div>
-
+   
       <div class="main">  
 
   <form action="./Date.php" onsubmit="return validateBooking()">
