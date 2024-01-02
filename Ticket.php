@@ -10,22 +10,64 @@
 <body>
     <?php 
     include 'nav.php';
+    include 'backend/conn.php';
 
     if($_SERVER["REQUEST_METHOD"] =="POST"){
 
         $numPersons = isset($_POST["numPersons"]) ? $_POST["numPersons"] : '';
         $numBags = isset($_POST["numBags"]) ? $_POST["numBags"] : '';
-        $date = isset($_POST["date"]) ?  $_POST["date"] : '';
         $flightId = isset($_POST["flightId"]) ? $_POST["flightId"] : '';
         $status = isset($_POST["status"]) ? $_POST["status"] : '';
-        $airport = isset($_POST["airport"]) ? $_POST["airport"] : '';
         $location = isset($_POST["location"]) ? $_POST["location"] : '';
         $lat = isset($_POST["lat"]) ? $_POST["lat"] : '';
         $long = isset($_POST["long"]) ? $_POST["long"] : '';
 
 
+        $query="SELECT * FROM flights WHERE id=:id;";
+        $stmt=$pdo->prepare($query);
+        $stmt->bindParam(":id",$flightId);
+        $stmt->execute();
 
-        if(($numPersons==='' || $numBags==='' || $date==='' || $flightId==='' || $status ===''|| $airport ===''|| $location===''|| $lat==='' || $long==='')){
+        if($stmt->rowCount() == 0){
+            header("location:./Booking.php");
+            die();
+        }
+
+        $results=$stmt->fetchAll();
+
+        $airportFrom = $results[0]["f_from"];
+        $airportTo = $results[0]["f_to"];
+
+        $flightDepartureDate = $results[0]["f_date"];
+        $flightDepartureTime = $results[0]["f_time"];
+        $flightDuration = $results[0]["f_timeTaken"];
+
+
+        
+        $origin = urlencode("40.6655101,-73.89188969999998");
+        $destination = urlencode("40.6905615,-73.9976592");
+
+        $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=$origin&destinations=$destination&key=AIzaSyDJs1Pk4vKCGlr9RFXgxF7rOJ1ToG3jAew";
+
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+
+        if (!empty($data['rows'][0]['elements'][0]['distance'])) {
+            $distance = $data['rows'][0]['elements'][0]['distance']['text'];
+            echo "The driving distance is: $distance";
+        } else {
+            echo "Error: Something went wrong";
+        }
+        
+
+
+        $meetCaptinDate = date("Y-m-d",strtotime($flightDepartureDate));
+        $meetCaptinTime = date("H:i:s",strtotime($flightDepartureTime."- 2 hours"));
+
+        echo $meetCaptinDate. " ".$meetCaptinTime;
+
+
+        if(($numPersons==='' || $numBags==='' ||  $flightId==='' || $status ===''|| $location===''|| $lat==='' || $long==='')){
             header("location:./Booking.php");
         }
     }
@@ -43,7 +85,13 @@
 
       <div id="Llev1">
             <p style="margin-bottom: 0px;">Your Ticket ID</p>
-            <p style="margin-top: 5px ;">123456789</p>
+            <p style="margin-top: 5px ;"><?php
+            $letters = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
+            $numbers = substr(str_shuffle("0123456789"), 0, 5);
+            $TicketID = $letters . $numbers;
+
+            echo $TicketID;
+?></p>
 
       </div>
 
@@ -54,7 +102,7 @@
        
     <p><?php      
     if($status == "Returning"){
-        echo $airport." Airport";
+        echo $airportTo." Airport";
         
     }else{
         echo $location;
@@ -68,7 +116,7 @@
          echo $location;
          
     }else{
-        echo $airport." Airport";
+        echo $airportFrom." Airport";
      }
      ?></p>
 
