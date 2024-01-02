@@ -205,7 +205,7 @@ body{
    background-size: cover;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1800px) {
   body{
     background-image:none;
     /* background-color: black; */
@@ -394,6 +394,8 @@ font-weight: bold;
   flex-direction: row;
   justify-content: space-between;
 }
+
+
 #Rdiv{
 background-color: #DFF6FF;
 margin-top: 100px;
@@ -405,6 +407,19 @@ box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 .bla{
   margin:70px 15px;
   font-size: 22px;
+}
+
+@media screen and (max-width: 945px) {
+  .mn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #Rdiv{
+    margin-left: 80px;
+  
+  }
 }
 
 #errorBox{
