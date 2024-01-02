@@ -1,0 +1,26 @@
+.mn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.ticket{
+    background-color: #003F60;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+#level1{
+    margin-left: 20px;
+}
+#level3{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
