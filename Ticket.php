@@ -10,7 +10,30 @@
 <body>
     <?php 
     include 'nav.php';
+
+    if($_SERVER["REQUEST_METHOD"] =="POST"){
+
+        $numPersons = isset($_POST["numPersons"]) ? $_POST["numPersons"] : '';
+        $numBags = isset($_POST["numBags"]) ? $_POST["numBags"] : '';
+        $date = isset($_POST["date"]) ?  $_POST["date"] : '';
+        $flightId = isset($_POST["flightId"]) ? $_POST["flightId"] : '';
+        $status = isset($_POST["status"]) ? $_POST["status"] : '';
+        $airport = isset($_POST["airport"]) ? $_POST["airport"] : '';
+        $location = isset($_POST["location"]) ? $_POST["location"] : '';
+        $lat = isset($_POST["lat"]) ? $_POST["lat"] : '';
+        $long = isset($_POST["long"]) ? $_POST["long"] : '';
+
+
+
+        if(($numPersons==='' || $numBags==='' || $date==='' || $flightId==='' || $status ===''|| $airport ===''|| $location===''|| $lat==='' || $long==='')){
+            header("location:./Booking.php");
+        }
+    }
+
     ?>
+
+
+
 
     <div id="container">
     <!-- level 1 -->
@@ -29,11 +52,25 @@
     <!-- level 2 -->
     <div id="level2">
        
-    <p>Betak</p>
+    <p><?php      
+    if($status == "Returning"){
+        echo $airport." Airport";
+        
+    }else{
+        echo $location;
+     } ?></p>
 
      <img src="icons/Car.svg" alt="car" id="Car">
 
-     <p id="Ltext">Airport</p>
+     <p id="Ltext"><?php
+     
+     if($status == "Returning"){
+         echo $location;
+         
+    }else{
+        echo $airport." Airport";
+     }
+     ?></p>
 
     </div>
     <!-- level 3 -->

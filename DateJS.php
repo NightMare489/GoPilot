@@ -51,9 +51,8 @@ function handleDayClick(day) {
 
     <?php
 
-    if(isset($_GET["date"])):
-        $SelectedDate = $_GET["date"];
-        echo "const selectedDate = new Date('<?php echo $SelectedDate; ?>');";
+    if(isset($date)):
+        echo "const selectedDate = new Date('$date');";
 
         echo 'if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
           dayElement.classList.add("selected");
@@ -144,6 +143,61 @@ function plus(e){
   input[e].value = value;
 }
 
+function checkNegativeBags(e){
+  if(e.value<=0)
+    e.value = 0;
+}
+
+function checkNegativePerson(e){
+  if(e.value<=1)
+    e.value = 1;
+}
+
+function handleBooking(id){
+  let input = document.getElementsByClassName("NumOfPersons");
+
+  let numPersons = input[0].value;
+  let numBags = input[1].value;
+  let date = "<?php echo $date ?>";
+  let flightId = id;
+
+  let status = "<?php echo $status ?>";
+  let airport = "<?php echo $airport ?>";
+  let location = "<?php echo $location ?>";
+  let lat = "<?php echo $lat ?>";
+  let long = "<?php echo $long ?>";
+
+
+      let form = document.createElement('form');
+      form.action = 'Ticket.php';
+      form.method = 'POST';
+
+      let data = {
+        'numPersons': numPersons,
+        'numBags': numBags,
+        'date': date,
+        'flightId': flightId,
+        'status': status,
+        'airport': airport,
+        'location': location,
+        'lat': lat,
+        'long': long
+      };
+
+      for (let key in data) {
+        let input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = data[key];
+        form.appendChild(input);
+      }
+
+      document.body.appendChild(form);
+
+      form.submit();
+    
+
+}
 
 
  </script>

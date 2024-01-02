@@ -23,8 +23,7 @@ if($_SERVER["REQUEST_METHOD"] =="GET"){
   $lat = $_GET["lat"];
   $long = $_GET["long"];
   $location = $_GET["location"];
-
-  $date = $_GET["date"];
+  $date = $_GET["date"]??"";
 
   if($date == ""){
     $date = date("Y-m-d");
@@ -72,7 +71,7 @@ $clouseStatus = "f_from";
   <button class="bbtn" onclick="minus(0)">
     -
   </button>
-  <input type="Number" class="NumOfPersons" value="1" style="text-align: center;">
+  <input type="Number" onblur="checkNegativePerson(this)" class="NumOfPersons" value="1" style="text-align: center;">
   <button class="bbtn" onclick="plus(0)">
     +
   </button>
@@ -82,7 +81,7 @@ $clouseStatus = "f_from";
   <button class="bbtn" onclick="minus(1)">
     -
   </button>
-  <input type="Number" class="NumOfPersons" value="1" style="text-align: center; ">
+  <input type="Number" onblur="checkNegativeBags(this)" class="NumOfPersons" value="0" style="text-align: center; ">
   <button class="bbtn" onclick="plus(1)">
     +
   </button>
@@ -92,9 +91,6 @@ $clouseStatus = "f_from";
 
 
 <?php
-
-
-
     $query="SELECT * FROM flights WHERE $clouseStatus = '$airport' AND f_date='$date';";
 
     $stmt=$pdo->prepare($query);
@@ -108,7 +104,7 @@ $clouseStatus = "f_from";
 ?>
 
 <!-- flight card -->
-<div  class="flightCard" style="margin-top:120px;margin-left:100px; display:flex; flex-direction: row; align-items: center; gap: 120px;">
+<div onclick="handleBooking(<?php echo $row['id']; ?>)"  class="flightCard" style="margin-top:40px;margin-left:100px; display:flex; flex-direction: row; align-items: center; gap: 120px;">
   <!-- Ldiv -->
     <div>
       <p>
