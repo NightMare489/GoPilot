@@ -1,3 +1,8 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.5s;
+
+}
 body{
     background-color: white;
      background-repeat: no-repeat;background-attachment: scroll;
