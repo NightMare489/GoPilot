@@ -202,3 +202,77 @@ input[type=number] {
   background-color: #3498db;
   cursor: pointer;
 }
+
+.chooser{
+  margin-top:110px;
+   margin-left:250px
+}
+
+.dis{
+  display: flex;
+   flex-direction:row;
+  gap:30px;
+}
+
+.flightCard{
+  margin-top:40px;
+  margin-left:100px; 
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 120px;
+}
+
+
+@media screen and (max-width: 1450px) {
+  body{
+    background-image: none;
+  }
+
+  .chooser{
+    margin-left: 125px;
+  }
+  
+}
+
+@media screen and (max-width: 1200px) {
+  .chooser{
+    margin-left:10px;
+  }
+  
+}
+
+@media screen and (max-width: 970px) {
+  .mnn{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .calendar-box{
+    margin-left: 0px;
+    width: 300px;
+  }
+  .chooser{
+    margin-left: 0px;
+    margin-top: 25px;
+  }
+  .flightCard{
+    flex-direction: column;
+    width: auto;
+    margin: 25px 60px;
+    gap: 10px;
+  }
+  .dis{
+    margin: 0px;
+    gap: 5px;
+  }
+  .dis>p{
+    margin: 0px;
+  }
+
+  .flightCard>div>p{
+    margin: 0px;
+  }
+
+}
+  

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Profile.css?v=<?php echo time(); ?>">
+
+    <script src="./Profile.js" defer></script>
     <title>Profile</title>
 </head>
 <body>
@@ -12,9 +14,7 @@
     include 'backend/conn.php';
 
     ?>
-    <div id="main">
-
-        <div id="container">
+    
 
         <?php 
             if($_SERVER["REQUEST_METHOD"] =="POST"){
@@ -73,27 +73,62 @@
         ?>
             
         <form  action="./Profile.php" method="POST" onsubmit="return checkpass()">
-            <h1>Profile</h1>
-            <p>Username: <?php echo $results[0]['name'] ?></p>
-            <p>Email: <?php echo $results[0]['email'] ?></p>
-            <div style="display: flex; flex-direction: row; gap:15px"> 
-               <p>Phone: <?php echo $results[0]['phonenumber']?>  </p>
-               
-               <div id="edit"><img src="icons/edit.svg" alt="edit" style="padding-top: 7px;"></div>
-               
+        <div id="mn" >
+        <p id="pro">
+            Profile
+        </p>
+        <div id="main">
+            <div id="ldiv">
+                <div class="data">
+                    <p>
+                        USER NAME:
+                    </p>
+                    <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amr Asd
+                    </p>    
+                </div>
+                <div class="data">
+                    <p>
+                        E-Mail:
+                    </p>
+                    <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amrashraf72002@gmail.com
+                    </p>    
+                </div>
+                <div class="data">
+                    <p>
+                        Phone Number:
+                    </p>
+                    <div id ="phone" style="display:flex; flex-direction:row; align-items:center;">
+                        <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01122099044
+                        </p>    
+                        <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
+                            <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
+                        </span>
+                        <div  id="Efeild" style="visibility: hidden;">
+                            <input type="text" placeholder="Enter The New Number">
+                        </div>
+                    </div>
+                    </div>
+                    <div id ="phone" style="display:flex; flex-direction:row; align-items:center;gap:20px">
+                <div id="reset" style="border-radius:45px;background-color:#0080C3;width:200px;height:40px;display:flex;justify-content:center;align-items:center; cursor:pointer;" onclick="changePassword()">
+                    <p style="color:white;">
+                        Reset Password
+                    </p>
+                </div>
+                <div class="Epass"style="visibility: hidden;">
+                     <input type="text" placeholder="Enter The Current Password">
+                </div>
+                <div class="Epass"style="visibility: hidden;">
+                    <input type="text" placeholder="Enter The New Password">
+                </div>
+                <div class="Epass"style="visibility: hidden;">
+                    <input type="text" placeholder="Confirm The New Number">
+                </div>
             </div>
-            
-            <input type="text" name="phone" id="phone" placeholder="Enter your new phone number">
+            </div>
 
-            <input type="password" name="oldpass" id="oldpass" placeholder="Enter your old password">
-            <input type="password" name="newpass" id="newpass" placeholder="Enter your new password">
-            <input type="password" name="confirmpass" id="confirmpass" placeholder="Confirm your new password">
-            
-            <button id="Reset" type="submit">Save</button>
-        </div>
-         
-        
-        
             <div class="profile-pic" id="rightdiv">
                 <label class="-label" for="file" style="border-radius: 50%;">
                     <span class="glyphicon glyphicon-camera"></span>
@@ -102,7 +137,14 @@
                 <input id="file" type="file" onchange="loadFile(event)"/>
                 <img src="icons/AboutUs.png" id="output" width="200" />
                 </div>
-            </div>
+                
+        </div>
+        <div id="save">
+            <p>
+                SAVE
+            </p>
+        </div>
+    </div>
     </form>
 
 </body>

@@ -12,3 +12,13 @@ var loadFile = function (event) {
       return false;
     }
   }
+
+  function changePhone(){
+    document.getElementById("Efeild").style.visibility = 'visible';
+  }
+  function changePassword(){
+    var x=document.getElementsByClassName("Epass");
+    for(var i=0;i<x.length;i++){
+      x[i].style.visibility = 'visible';
+    }
+  }

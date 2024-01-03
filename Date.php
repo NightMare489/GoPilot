@@ -66,7 +66,7 @@ $clouseStatus = "f_from";
 <!-- end of calender -->
 
  <!--Number of persons and bags  -->
-<div class="chooser" style="margin-top:110px; margin-left:250px">
+<div class="chooser">
   <p style="font-size:large; font-weight:bold; font-family:Arial, Helvetica, sans-serif;">Number of Persons</p>
   <button class="bbtn" onclick="minus(0)">
     -
@@ -76,7 +76,7 @@ $clouseStatus = "f_from";
     +
   </button>
 </div>
-<div class="chooser" style="margin-top:110px; margin-left:250px">
+<div class="chooser" >
   <p style="font-size:large; font-weight:bold; font-family:Arial, Helvetica, sans-serif; margin-left:18px;">Number of Bags</p>
   <button class="bbtn" onclick="minus(1)">
     -
@@ -104,7 +104,7 @@ $clouseStatus = "f_from";
 ?>
 
 <!-- flight card -->
-<div onclick="handleBooking(<?php echo $row['id']; ?>)"  class="flightCard" style="margin-top:40px;margin-left:100px; display:flex; flex-direction: row; align-items: center; gap: 120px;">
+<div onclick="handleBooking(<?php echo $row['id']; ?>)"  class="flightCard">
   <!-- Ldiv -->
     <div>
       <p>
@@ -121,7 +121,7 @@ $clouseStatus = "f_from";
 <!--  -->
 <!-- Rdiv -->
     <div style="display: flex; flex-direction:column;">
-        <div style="display: flex; flex-direction:row; gap:30px;">
+        <div class="dis">
           <p>
             From:
           </p>
@@ -130,7 +130,7 @@ $clouseStatus = "f_from";
           </p>
         </div>
 
-        <div style="display: flex; flex-direction:row;gap:30px;">
+        <div class="dis">
           <p>
             To:
           </p>
