@@ -236,6 +236,12 @@
   
 }
 
+@media screen and (max-width: 600px)  {
+  #mn{
+    width: fit-content;
+  }
+}
+
 
 @keyframes slideInFromRight {
   0% {
