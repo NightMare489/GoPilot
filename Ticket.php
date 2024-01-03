@@ -241,12 +241,12 @@
     </div>
     <!-- level 4 -->
     <div id="level4">
-        <div <?php 
+        <div id ="confBtn"<?php 
             if($_SERVER["REQUEST_METHOD"] =="GET"){
                 echo "style='display:none'";
             }
         
-        ?> onclick="handleConfirmTicket()">
+        ?> onclick="handleConfirmTicket()" style="cursor: pointer;">
              Confirm
         </div>
     </div>
