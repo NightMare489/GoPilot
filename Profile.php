@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Profile.css?v=<?php echo time(); ?>">
 
-    <script src="./Profile.js" defer></script>
+    <script src="./Profile.js?v=<?php echo time(); ?>" defer></script>
     <title>Profile</title>
 </head>
 <body>
@@ -17,6 +17,7 @@
     
 
         <?php 
+        try{
             if($_SERVER["REQUEST_METHOD"] =="POST"){
                 $oldpass = isset($_POST["oldpass"]) ? $_POST["oldpass"] : '';
                 $newpass = isset($_POST["newpass"]) ? $_POST["newpass"] : '';
@@ -32,16 +33,19 @@
                 $results=$stmt->fetchAll();
 
                 if($results[0]["password"] != $oldpass){
-                    echo "<script>alert('Old password is wrong')</script>";
+                    $_SESSION["err"] = true;
+                    $_SESSION["errmsg"] = "Old password is wrong";
                 }else if($newpass != $confirmpass){
-                    echo "<script>alert('New password and confirm password are not the same')</script>";
+                    $_SESSION["err"] = true;
+                    $_SESSION["errmsg"] = "New password and confirm password are not the same";
                 }else{
                     $query="UPDATE users SET password=:password WHERE id=:id;";
                     $stmt=$pdo->prepare($query);
                     $stmt->bindParam(":password",$newpass);
                     $stmt->bindParam(":id",$_SESSION["usernameID"]);
                     $stmt->execute();
-                    echo "<script>alert('Password changed successfully')</script>";
+                    $_SESSION["err"] = 0;
+                    $_SESSION["errmsg"] = "Password changed successfully";
                 }
 
             }
@@ -54,13 +58,18 @@
                 $stmt->bindParam(":phonenumber",$phone);
                 $stmt->bindParam(":id",$_SESSION["usernameID"]);
                 $stmt->execute();
-                echo "<script>alert('Phone number changed successfully')</script>";
+                $_SESSION["err"] = 0;
+                $_SESSION["errmsg"] = "Phone number changed successfully";
 
             }
 
 
 
             }
+        }catch(PDOException $e){
+            $_SESSION["err"] = true;
+            $_SESSION["errmsg"] = $e->getMessage();
+        }
                 $usernameID = $_SESSION["usernameID"];
                 $query="SELECT * FROM users WHERE id=:id;";
                 $stmt=$pdo->prepare($query);
@@ -68,6 +77,7 @@
                 $stmt->execute();
                 $results=$stmt->fetchAll();
             
+
 
 
         ?>
@@ -84,7 +94,7 @@
                         USER NAME:
                     </p>
                     <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amr Asd
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["name"] ?>
                     </p>    
                 </div>
                 <div class="data">
@@ -92,7 +102,7 @@
                         E-Mail:
                     </p>
                     <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amrashraf72002@gmail.com
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $results[0]["email"] ?>
                     </p>    
                 </div>
                 <div class="data">
@@ -101,13 +111,13 @@
                     </p>
                     <div id ="phone" style="display:flex; flex-direction:row; align-items:center;">
                         <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01122099044
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["phonenumber"] ?>
                         </p>    
                         <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
                             <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
                         </span>
                         <div  id="Efeild" style="visibility: hidden;">
-                            <input type="text" placeholder="Enter The New Number">
+                            <input type="text" name="phone" placeholder="Enter The New Number">
                         </div>
                     </div>
                     </div>
@@ -118,13 +128,13 @@
                     </p>
                 </div>
                 <div class="Epass"style="visibility: hidden;">
-                     <input type="text" placeholder="Enter The Current Password">
+                     <input type="password" name="oldpass" placeholder="Enter The Current Password">
                 </div>
                 <div class="Epass"style="visibility: hidden;">
-                    <input type="text" placeholder="Enter The New Password">
+                    <input id="password" type="password" name="newpass" placeholder="Enter The New Password">
                 </div>
                 <div class="Epass"style="visibility: hidden;">
-                    <input type="text" placeholder="Confirm The New Number">
+                    <input id="cpassword" type="password" name="confirmpass" placeholder="Confirm The New Password">
                 </div>
             </div>
             </div>
@@ -139,13 +149,44 @@
                 </div>
                 
         </div>
-        <div id="save">
-            <p>
-                SAVE
-            </p>
-        </div>
+        <input id="save" type="submit" value="Save">
     </div>
     </form>
+
+    <div id="errorBox" >
+         <center> <p id="errorMsg"></p><center>
+    </div>
+
+    <script>
+        let errorMsg = "<?php echo  $_SESSION["errmsg"]?>";
+        let error = <?php echo  $_SESSION["err"]?>;
+        console.log("err"+errorMsg);
+
+        if(!error){
+            document.getElementById('errorBox').style.backgroundColor = '#00c30f';
+        }
+
+        if (errorMsg != "") {
+            document.getElementById('errorBox').style.animation = 'slideInFromRight 1s forwards';
+            document.getElementById('errorMsg').innerText = errorMsg;
+            document.getElementById('errorBox').style.display = 'block';
+
+            setTimeout(function () {
+                document.getElementById('errorBox').style.animation = 'slideOutToRight 1s forwards';
+
+            }, 3000);
+
+
+
+
+            <?php $_SESSION["errmsg"] ="";
+            $_SESSION["err"] = false; ?>
+        }
+
+
+    </script>
+
+
 
 </body>
 </html>

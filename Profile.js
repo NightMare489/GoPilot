@@ -8,7 +8,15 @@ var loadFile = function (event) {
     var pass = document.getElementById("password").value;
     var cpass = document.getElementById("cpassword").value;
     if (pass != cpass) {
-      alert("password and confirm password must be same");
+      document.getElementById('errorBox').style.backgroundColor = "#cc0000";
+      document.getElementById('errorBox').style.animation = 'slideInFromRight 1s forwards';
+      document.getElementById('errorMsg').innerText = "Passwords do not match";
+      document.getElementById('errorBox').style.display = 'block';
+
+      setTimeout(function () {
+          document.getElementById('errorBox').style.animation = 'slideOutToRight 1s forwards';
+
+      }, 3000);
       return false;
     }
   }
