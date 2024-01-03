@@ -33,9 +33,20 @@ var loadFile = function (event) {
       isOpened = true;
     }
   }
+  let passOpen = false;
   function changePassword(){
     var x=document.getElementsByClassName("Epass");
-    for(var i=0;i<x.length;i++){
-      x[i].style.visibility = 'visible';
+    if(passOpen){
+      for(var i=0;i<x.length;i++){
+        console.log("hello hiddin");
+        x[i].style.visibility = 'hidden';
+        passOpen = false;
+      }  
+    }else{
+      console.log("hello visible");
+      for(var i=0;i<x.length;i++){
+        x[i].style.visibility = 'visible';
+        passOpen = true;
+      }
     }
   }
