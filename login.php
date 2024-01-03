@@ -63,6 +63,8 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
         $_SESSION['success'] = True;
         $_SESSION['username'] = $user['name'];
         $_SESSION['usernameID'] = $user['id'];
+        $_SESSION['userEmail'] = $user['email'];
+
 
         
         header("location:./Booking.php");

@@ -1,6 +1,12 @@
 <?php
 
 include 'conn.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 if($_SERVER["REQUEST_METHOD"] =="POST"){
     session_start();
@@ -48,9 +54,81 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
     $stmt->execute();
 
 
+    $mail = new PHPMailer(true);
+
+    try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = '123az.az.Az.yaser@gmail.com'; 
+    $mail->Password   = 'bdbugkejdmitvncb'; 
+    $mail->SMTPSecure = 'tls';
+    $mail->Port       = 587;
+
+    // Recipients
+    $mail->setFrom('123az.az.Az.yaser@gmail.com', 'GoPilot');
+    $mail->addAddress($_SESSION['userEmail']);
+
+
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = "GoPilot";
+    $mail->Body = "
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>Dear ". $_SESSION["username"].",</p>
+
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>We're thrilled to confirm your reservation with GoPilot! </p>
+    
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>Here are the details of your upcoming ride:</p>
+    
+    <table style='border: 1px solid #ccc; border-collapse: collapse; width: 100%;'>
+    <tr style='border: 1px solid #ccc; padding: 10px;'>
+    <th style='text-align: left; padding: 5px;'>Ticket ID</th>
+    <td style='padding: 5px;'>$TicketID</td>
+    </tr>
+    <tr style='border: 1px solid #ccc; padding: 10px;'>
+    <th style='text-align: left; padding: 5px;'>Meet Captain at</th>
+    <td style='padding: 5px;'>$date at $time</td>
+    </tr>
+    <tr style='border: 1px solid #ccc; padding: 10px;'>
+    <th style='text-align: left; padding: 5px;'>Number of Persons</th>
+    <td style='padding: 5px;'>$numPersons</td>
+    </tr>
+    <tr style='border: 1px solid #ccc; padding: 10px;'>
+    <th style='text-align: left; padding: 5px;'>Number of Bags</th>
+    <td style='padding: 5px;'>$numBags</td>
+    </tr>
+    <tr style='border: 1px solid #ccc; padding: 10px;'>
+    <th style='text-align: left; padding: 5px;'>Expected Time to Airport</th>
+    <td style='padding: 5px;'>$duration</td>
+    </tr>
+    <tr style='border: 1px solid #ccc; padding: 10px;'>
+    <th style='text-align: left; padding: 5px;'>Total Price</th>
+    <td style='padding: 5px;'>$price L.E</td>
+    </tr>
+    </table>
+    
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>You may view your reservation <a href='http://localhost/GoPilot/Ticket.php?TicketID=".$TicketID."'>here</a></p>
+    
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>Please arrive at the designated meeting point with your Captain on time. Your Captain will be happy to assist you with any luggage or questions you may have.</p>
+    
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>We're committed to providing you with a seamless and unforgettable travel experience. If you have any questions or concerns, please don't hesitate to reach out to us.</p>
+    
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>Thank you for choosing GoPilot! We look forward to welcoming you on board soon.</p>
+    
+    <p style='font-family: Arial, sans-serif; font-size: 16px;'>Sincerely,<br>
+    The GoPilot Team</p>
+    
+    ";
+
+    $mail->send();
+
+
+    } catch (Exception $e) {
+
+    }
+
     header("Location: ../Dash.php");
-
-
 
 }
 
