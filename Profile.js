@@ -24,11 +24,9 @@ var loadFile = function (event) {
 
   function changePhone(){
     if(isOpened){
-      console.log("hello hiddin");
       document.getElementById("Efeild").style.visibility = 'hidden';
       isOpened = false;
     }else{
-      console.log("hello visible");
       document.getElementById("Efeild").style.visibility = 'visible';
       isOpened = true;
     }
@@ -38,12 +36,10 @@ var loadFile = function (event) {
     var x=document.getElementsByClassName("Epass");
     if(passOpen){
       for(var i=0;i<x.length;i++){
-        console.log("hello hiddin");
         x[i].style.visibility = 'hidden';
         passOpen = false;
       }  
     }else{
-      console.log("hello visible");
       for(var i=0;i<x.length;i++){
         x[i].style.visibility = 'visible';
         passOpen = true;
