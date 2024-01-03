@@ -8,8 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 160px;
-  margin-left: 300px;
+  margin: 160px auto 0px auto;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
   border-radius: 10px;
   max-width: 1200px;
@@ -102,6 +101,11 @@
   margin-top: 30px;
 }
 
+#phone{
+  display:flex; 
+  flex-direction:row;
+  align-items:center;
+}
 
 #save{
   cursor: pointer;
@@ -125,6 +129,11 @@
   background-color: #0059be;
 }
 
+#passworddiv{
+  display:flex; 
+  flex-direction:row; 
+  align-items:center;gap:20px
+}
 
 #errorBox{
   display:flex;
@@ -166,6 +175,67 @@
   font-size: 20px;
   font-weight: bold;
 }
+.value{
+  margin-left: 230px;
+}
+
+@media screen and (max-width: 1250px) {
+  #mn{
+    margin: 160px 20px 50px 20px;
+  }
+  #pro{
+    font-size: 60px;
+    margin: -40px auto 0px auto;
+  }
+  #main{
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #ldiv{
+    justify-content: space-between;
+    position: relative;
+    margin: 20px auto 20px auto;
+    padding: 0px;
+  }
+  #phone{
+
+    margin: 0px 0px 0px 160px;
+    justify-content: center;
+    align-content: center;
+
+  }
+  .value{
+    margin: 0px;
+    text-align: center;
+  }
+  #rightdiv{
+    position: relative;
+    right: 0%;
+    margin: 40px auto 20px auto;
+  }
+
+  #passworddiv{
+    flex-direction: column;
+    margin: 0px auto 0px auto;
+    justify-content: center;
+    align-content: center;
+  }
+  .data{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 5px;
+  }
+
+  #errorBox{
+    position: absolute;
+    top: 100%;
+    bottom: 5px;
+  }
+  
+}
+
 
 @keyframes slideInFromRight {
   0% {

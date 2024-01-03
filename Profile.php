@@ -93,36 +93,38 @@
                     <p class="label">
                     <strong>  USER NAME:</strong>
                     </p>
-                    <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["name"] ?>
+                    <p class="value">
+                    <?php echo $results[0]["name"] ?>
                     </p>    
                 </div>
                 <div class="data">
                     <p class="label">
                     <strong> E-Mail:</strong>
                     </p>
-                    <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $results[0]["email"] ?>
+                    <p class="value">
+                    <?php echo $results[0]["email"] ?>
                     </p>    
                 </div>
                 <div class="data">
                     <p class="label">
                     <strong> Phone Number:</strong>
                     </p>
-                    <div id ="phone" style="display:flex; flex-direction:row; align-items:center;">
-                        <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["phonenumber"] ?>
-                        </p>    
+                    <div id ="phone">
+
+                            <p class="value">
+                                <?php echo $results[0]["phonenumber"] ?>
+                            </p>    
+                            
+                            <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
+                                <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
+                            </span>
                         
-                             <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
-                            <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
-                        </span>
                         <div  id="Efeild" style="visibility: hidden;">
                             <input type="text" name="phone" placeholder="Enter The New Number">
                         </div>
                     </div>
                     </div>
-                    <div id ="phone" style="display:flex; flex-direction:row; align-items:center;gap:20px">
+                    <div id="passworddiv">
                 <div id="reset" onclick="changePassword()">
                     <p id="reser" style="color:white;">
                         Reset Password
@@ -150,7 +152,7 @@
                 </div>
                 
         </div>
-        <input id="save" type="submit" value="Save">
+        <input id="save" type="submit" value="Save" style="visibility: hidden;">
     </div>
     </form>
     <div id="errorBox" >
