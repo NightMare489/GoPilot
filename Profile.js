@@ -25,9 +25,11 @@ var loadFile = function (event) {
   function changePhone(){
     if(isOpened){
       document.getElementById("Efeild").style.visibility = 'hidden';
+      document.getElementById("save").style.visibility = 'hidden';
       isOpened = false;
     }else{
       document.getElementById("Efeild").style.visibility = 'visible';
+      document.getElementById("save").style.visibility = 'visible';
       isOpened = true;
     }
   }
@@ -39,10 +41,12 @@ var loadFile = function (event) {
         x[i].style.visibility = 'hidden';
         passOpen = false;
       }  
+      document.getElementById("save").style.visibility = 'hidden';
     }else{
       for(var i=0;i<x.length;i++){
         x[i].style.visibility = 'visible';
         passOpen = true;
       }
+      document.getElementById("save").style.visibility = 'visible';
     }
   }
