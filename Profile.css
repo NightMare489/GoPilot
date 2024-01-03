@@ -1,3 +1,9 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.5s;
+  transition: smooth;
+}
+
 #mn{
   display: flex;
   flex-direction: column;
@@ -32,14 +38,19 @@
   margin-top: 60px;
   margin-left: 60px;
   margin-right: 60px;
-  gap: 30px;
+  gap: 10px;
   margin-bottom: 130px;
 }
 .data {
-  font-size: 15px;
+  
+  font-size: 25px;
   /* font-weight: bold; */
   font-family: 'Roboto', sans-serif;
   
+}
+
+.label{
+ margin-top: 0px;
 }
 .profile-pic {
   color: transparent;
@@ -87,7 +98,7 @@
 }
 #rightdiv{
   position: relative;
-  right: 5%;
+  right: 10%;
   margin-top: 30px;
 }
 
@@ -133,6 +144,27 @@
   height:80px; 
   z-index:100; 
   color: white; 
+}
+
+#reset{
+  border-radius:45px;
+  background-color:#0080C3;
+  width:300px;
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+  cursor:pointer;
+}
+
+#reser{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#save{
+  font-size: 20px;
+  font-weight: bold;
 }
 
 @keyframes slideInFromRight {

@@ -90,30 +90,31 @@
         <div id="main">
             <div id="ldiv">
                 <div class="data">
-                    <p>
+                    <p class="label">
                     <strong>  USER NAME:</strong>
                     </p>
                     <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["name"] ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["name"] ?>
                     </p>    
                 </div>
                 <div class="data">
-                    <p>
+                    <p class="label">
                     <strong> E-Mail:</strong>
                     </p>
                     <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $results[0]["email"] ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $results[0]["email"] ?>
                     </p>    
                 </div>
                 <div class="data">
-                    <p>
+                    <p class="label">
                     <strong> Phone Number:</strong>
                     </p>
                     <div id ="phone" style="display:flex; flex-direction:row; align-items:center;">
                         <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["phonenumber"] ?>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["phonenumber"] ?>
                         </p>    
-                        <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
+                        
+                             <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
                             <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
                         </span>
                         <div  id="Efeild" style="visibility: hidden;">
@@ -122,8 +123,8 @@
                     </div>
                     </div>
                     <div id ="phone" style="display:flex; flex-direction:row; align-items:center;gap:20px">
-                <div id="reset" style="border-radius:45px;background-color:#0080C3;width:200px;height:40px;display:flex;justify-content:center;align-items:center; cursor:pointer;" onclick="changePassword()">
-                    <p style="color:white;">
+                <div id="reset" onclick="changePassword()">
+                    <p id="reser" style="color:white;">
                         Reset Password
                     </p>
                 </div>

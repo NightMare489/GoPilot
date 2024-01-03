@@ -20,9 +20,18 @@ var loadFile = function (event) {
       return false;
     }
   }
+  let isOpened = false;
 
   function changePhone(){
-    document.getElementById("Efeild").style.visibility = 'visible';
+    if(isOpened){
+      console.log("hello hiddin");
+      document.getElementById("Efeild").style.visibility = 'hidden';
+      isOpened = false;
+    }else{
+      console.log("hello visible");
+      document.getElementById("Efeild").style.visibility = 'visible';
+      isOpened = true;
+    }
   }
   function changePassword(){
     var x=document.getElementsByClassName("Epass");
