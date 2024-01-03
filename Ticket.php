@@ -11,7 +11,7 @@
 <body>
     <?php 
     include 'nav.php';
-    include 'backend/conn.php';
+    include 'conn.php';
 
     if($_SERVER["REQUEST_METHOD"] =="POST"){
 
@@ -174,7 +174,7 @@
     <div id="container">
     <!-- level 1 -->
     <div style="background-color: #003F60;" id="level1">
-      <img src="icons/logo.png" alt="logo" >
+      <img src="logo.png" alt="logo" >
 
 
       <div id="Llev1">
@@ -197,7 +197,7 @@
     echo $locationFrom;
     ?></p>
 
-     <img src="icons/Car.svg" alt="car" id="Car">
+     <img src="Car.svg" alt="car" id="Car">
 
      <p id="Ltext"><?php
      
@@ -272,7 +272,7 @@
             let duration = "<?php echo $durationTxt ?>";
 
             let form = document.createElement('form');
-            form.action = 'backend/ConfirmTicket.php';
+            form.action = 'ConfirmTicket.php';
             form.method = 'POST';
             form.style.display = 'none';
 

@@ -6,15 +6,15 @@
     <meta http-equiv="refresh" content=" 3 ; url = Booking.php" /> 
 
     <title>Loading</title>
-    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="loading.css?v=<?php echo time(); ?>">
     
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
 <div class="clouds"></div>
 
     <div class="plane">
-        <img src = "icons/airplane.png" alt = "plane">
+        <img src = "airplane.png" alt = "plane">
     </div>
 
 </body>

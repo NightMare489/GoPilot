@@ -9,7 +9,7 @@
 <body>
     <?php
         include("./nav.php");
-        include("./backend/conn.php");
+        include("conn.php");
 
     ?>
 
@@ -46,7 +46,7 @@
             </div>
 
             <div id="level2">
-            <img src="icons/logo.png" alt="logo">
+            <img src="logo.png" alt="logo">
             </div>
 
             <div id="level3">

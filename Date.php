@@ -6,7 +6,7 @@
     <title>Date</title>
     <link rel="stylesheet" href="./Date.css?v=<?php echo time(); ?>">
 
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <!-- <script type="text/javascript" src="Date.js" defer></script> -->
 
 </head>
@@ -14,7 +14,7 @@
 <!-- app bar -->
 <?php
 include "nav.php";
-include 'backend/conn.php';
+include 'conn.php';
 
 if($_SERVER["REQUEST_METHOD"] =="GET"){
     

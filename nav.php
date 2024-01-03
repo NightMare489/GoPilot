@@ -4,7 +4,7 @@
     <title>Date</title>
     <link rel="stylesheet" href="./nav.css?v=<?php echo time(); ?>">
 
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <script type="text/javascript" src="nav.js" defer></script>
 
   <?php
@@ -18,7 +18,7 @@
 <div id="menu" class="card">
       <div id="logo">
         <a href="index.php">
-          <img src="icons/navlogo.png" alt="logo" id="logoimg" />
+          <img src="navlogo.png" alt="logo" id="logoimg" />
         </a>
       </div>
       <div class="rightblock">
@@ -31,7 +31,7 @@
         <div class="menuItem menuItemDiv" id="coma">|
         </div>
         <div class="menuItemDiv">
-          <a href='./backend/logout.php' class="menuItem">Log Out</a>
+          <a href='logout.php' class="menuItem">Log Out</a>
         </div>
         <div class="hambruger">
           <span id="hambruger" class="Hambrger" onclick="hambruger()">☰</span>
@@ -45,7 +45,7 @@
             Dashboard 
         </a>
             <a  class="SideBarItemsDiv"  href=""><?php echo $username ?></a>
-            <a href='./backend/logout.php' class="SideBarItemsDiv">Log Out</a>
+            <a href='logout.php' class="SideBarItemsDiv">Log Out</a>
         </div>
       </div>
 

@@ -11,7 +11,7 @@
 <body>
     <?php 
     include 'nav.php';
-    include 'backend/conn.php';
+    include 'conn.php';
 
     ?>
     
@@ -114,7 +114,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["phonenumber"] ?>
                         </p>    
                         <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
-                            <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
+                            <img src="edit.svg" alt="edit" style="margin-left:3px">
                         </span>
                         <div  id="Efeild" style="visibility: hidden;">
                             <input type="text" name="phone" placeholder="Enter The New Number">
@@ -145,7 +145,7 @@
                     <span>Change Image</span>
                 </label>
                 <input id="file" type="file" onchange="loadFile(event)"/>
-                <img src="icons/AboutUs.png" id="output" width="200" />
+                <img src="AboutUs.png" id="output" width="200" />
                 </div>
                 
         </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Booking</title>
     <link rel="stylesheet" href="./Booking.css?v=<?php echo time(); ?>">
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <script type="text/javascript" src="Booking.js" defer></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJs1Pk4vKCGlr9RFXgxF7rOJ1ToG3jAew&callback=initMap" async defer></script>
@@ -30,7 +30,7 @@
               <span class="radio-tile">
                 <span class="radio-label">Traveling</span>
                 <span class="radio-icon">
-                  <img src="./icons/airplane-takeoff.svg" alt="" width="40px" height="40px">
+                  <img src="airplane-takeoff.svg" alt="" width="40px" height="40px">
                 </span>
               </span>
             </label>
@@ -38,7 +38,7 @@
               <input  class="radio-input" type="radio" value="Returning" name="status"  onchange="handleLocation()">
               <span class="radio-tile">
                 <span class="radio-icon">
-                  <img src="./icons/airplane-arrival.svg" alt="" width="40px" height="40px">
+                  <img src="airplane-arrival.svg" alt="" width="40px" height="40px">
                 </span>
                 <span class="radio-label">Returning</span>
               </span>
@@ -67,7 +67,7 @@
 
 
   <span onclick="openMap()" href="" id="mapIcon" style=" margin-left: -200px;">
-    <img src="icons/map.png" >
+    <img src="map.png" >
 </span>
 
 
