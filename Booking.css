@@ -367,12 +367,18 @@ font-weight: bold;
 }
 
 #map{
-  position: fixed;
-  display: hidden;
+  display:none;
   top: 12.5%;
   left: 12.5%;
-  transition: 0s;
+  height: 75%;
+  width: 75%;
+  transition: 0s !important;
+  position: fixed !important;
   z-index: 1000;
+}
+
+#map *{
+  transition: 0s !important;
 }
 
 #Background{
