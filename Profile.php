@@ -91,7 +91,7 @@
             <div id="ldiv">
                 <div class="data">
                     <p>
-                        USER NAME:
+                    <strong>  USER NAME:</strong>
                     </p>
                     <p>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $results[0]["name"] ?>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="data">
                     <p>
-                        E-Mail:
+                    <strong> E-Mail:</strong>
                     </p>
                     <p>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $results[0]["email"] ?>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="data">
                     <p>
-                        Phone Number:
+                    <strong> Phone Number:</strong>
                     </p>
                     <div id ="phone" style="display:flex; flex-direction:row; align-items:center;">
                         <p>
