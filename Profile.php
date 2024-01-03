@@ -64,6 +64,33 @@
             }
 
 
+            $file_name = $_FILES['file']['name'];
+            $file_tmp = $_FILES['file']['tmp_name'];
+            $file_size = $_FILES['file']['size'];
+            $file_error = $_FILES['file']['error'];
+
+        if ($file_error === 0) {
+            $upload_dir = "uploads/"; 
+            $target_file = $upload_dir . $file_name;
+
+            if (move_uploaded_file($file_tmp, $target_file)) {
+
+                $query="UPDATE users SET url=:url WHERE id=:id;";
+                $stmt=$pdo->prepare($query);
+                $stmt->bindParam(":url",$target_file);
+                $stmt->bindParam(":id",$_SESSION["usernameID"]);
+                $stmt->execute();
+                
+
+                $_SESSION["err"] = 0;
+                $_SESSION["errmsg"] = "File uploaded successfully!";
+            } else {
+                $_SESSION["err"] = true;
+                $_SESSION["errmsg"] = "Error uploading file.";
+            }
+        }
+
+
 
             }
         }catch(PDOException $e){
@@ -82,7 +109,7 @@
 
         ?>
             
-        <form  action="./Profile.php" method="POST" onsubmit="return checkpass()">
+        <form  action="./Profile.php" method="POST" enctype="multipart/form-data" onsubmit="return checkpass()">
         <div id="mn" >
         <p id="pro">
             Profile
@@ -145,8 +172,8 @@
                     <span class="glyphicon glyphicon-camera"></span>
                     <span>Change Image</span>
                 </label>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-                <img src="icons/AboutUs.png" id="output" width="200" />
+                <input id="file" name="file" type="file" onchange="loadFile(event)"/>
+                <img src="<?php echo $results[0]["url"]?>" id="output" width="200" />
                 </div>
                 
         </div>
