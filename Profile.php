@@ -152,7 +152,6 @@
         <input id="save" type="submit" value="Save">
     </div>
     </form>
-
     <div id="errorBox" >
          <center> <p id="errorMsg"></p><center>
     </div>
