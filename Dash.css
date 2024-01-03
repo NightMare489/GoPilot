@@ -16,6 +16,12 @@
     margin-top: 30px;   
 }
 
+.ticket img{
+    width: 213px ; 
+    height: 100px ; 
+    margin-left: 20px
+}
+
 .ticket:hover{
     background-color: #002A40;
     cursor: pointer;
@@ -30,4 +36,69 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#Header{
+    font-size:50px;
+     color:#003F60
+}
+
+.label{
+    color:white;
+    font-size:28px;
+    margin-top:5px;
+    margin-bottom:5px
+}
+
+.value{
+    font-size:25px;
+    margin-top:5px;
+}
+
+@media screen and (max-width: 900px) {
+    #Header{
+        font-size:40px;
+    }
+    .label{
+        font-size:20px;
+    }
+    .value{
+        font-size:18px;
+    }
+    
+}
+
+@media screen and (max-width: 730px) {
+    .ticket{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ticket img{
+        margin-left: 0px;
+        width: 150px ;
+        height: 75px ;
+    }
+
+    #Header{
+        font-size:30px;
+    }
+    #level1{
+        padding-bottom: -25px;
+        margin: 0px;
+        align-items: center;
+    }
+    #level3{
+        margin: 0px 0px 10px 0px;
+        align-items: center;
+    }
+    .label{
+        text-align: center;
+    margin: 0px;
+    }
+    .value{
+        text-align: center;
+    margin: 0px;
+    }
+    
 }
