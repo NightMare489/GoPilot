@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DashBoard</title>
     <link rel="stylesheet" href="./Dash.css?v=<?php echo time(); ?>">
 </head>
 <body>
@@ -14,7 +14,7 @@
     ?>
 
     <div class="mn">
-        <p style="font-size:50px; color:#003F60">
+        <p id="Header">
             Your Dashboard
         </p>
 
@@ -41,17 +41,17 @@
         <div class="ticket" value="<?php echo $row["TicketID"]?>" onclick="handleClick(this)" >
 
             <div id="level1">
-                <p style="color:white;font-size:28px;margin-top:20px;margin-bottom:5px">Date</p>
-                <p style="color:#DFF6FF; font-size:25px;margin-top:2px"><?php echo date("d/m/Y", strtotime($row["T_date"])); ?></p>
+                <p class="label" style="margin-top:20px;">Date</p>
+                <p class="value" style="color:#DFF6FF; font-size:25px;margin-top:2px"><?php echo date("d/m/Y", strtotime($row["T_date"])); ?></p>
             </div>
 
             <div id="level2">
-            <img src="icons/logo.png" alt="logo" style="width: 213px ; height: 100px ; margin-left: 20px ">
+            <img src="icons/logo.png" alt="logo">
             </div>
 
             <div id="level3">
-                <p style="color:white;font-size:28px;margin-top:5px;margin-bottom:5px">Your Ticket ID</p>
-                <p style="color:white;font-size:25px;margin-top:5px;margin-bottom:5px"><?php echo $row["TicketID"] ?></p>
+                <p class="label" >Your Ticket ID</p>
+                <p class="value" style="color:white;margin-bottom:5px"><?php echo $row["TicketID"] ?></p>
             </div>
         </div>
         <?php
