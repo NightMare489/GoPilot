@@ -44,7 +44,7 @@
           <a  class="SideBarItemsDiv" href="./Dash.php" >
             Dashboard 
         </a>
-            <a  class="SideBarItemsDiv"  href=""><?php echo $username ?></a>
+            <a  class="SideBarItemsDiv"  href="./Profile.php"><?php echo $username ?></a>
             <a href='./backend/logout.php' class="SideBarItemsDiv">Log Out</a>
         </div>
       </div>

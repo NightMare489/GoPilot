@@ -188,7 +188,14 @@
 
     <script>
         let errorMsg = "<?php echo  $_SESSION["errmsg"]?>";
-        let error = <?php echo  $_SESSION["err"]?>;
+        let error = <?php 
+        
+            if(isset($_SESSION["err"])&& $_SESSION["err"]){
+                echo  $_SESSION["err"];
+            }else{
+                echo 0;
+            }
+        ?>;
         console.log("err"+errorMsg);
 
         if(!error){
