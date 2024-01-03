@@ -302,22 +302,27 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
 
             function validateSignup(){
 
+              console.log(document.forms[1]);
+
               var username=document.forms[1][1].value;
               var email=document.forms[1][2].value;
               var phone=document.forms[1][3].value;
               var password=document.forms[1][4].value;
               var confirmpassword=document.forms[1][5].value;
 
-              console.log(username);
+              let regex = /^01[0125][0-9]{8}$/;
 
+              // console.log(username);
+              console.log("login");
               var errorMsg = "";
               if(username=="" || email=="" || phone=="" || password=="" || confirmpassword==""){
                 errorMsg = "Please fill all the fields";
+              }else if(!regex.test(phone)){
+                errorMsg = "Invalid phone number";
               }
               else if(password!=confirmpassword){
                 errorMsg = "Passwords do not match";
               }
-
               if (errorMsg != "") {
                 document.getElementById('errorBox').style.animation = 'slideInFromRight 1s forwards';
                 document.getElementById('errorMsg').innerText = errorMsg;
