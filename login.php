@@ -15,7 +15,7 @@
 session_start();
 
 if (isset($_SESSION["username"]) && $_SESSION["username"]!=""){
-  header("location:./Booking.php");
+  header("location:./home.php");
 }
 
 // Sign up
