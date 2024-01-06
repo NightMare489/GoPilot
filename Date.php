@@ -6,7 +6,7 @@
     <title>Date</title>
     <link rel="stylesheet" href="./Date.css?v=<?php echo time(); ?>">
 
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
   <!-- <script type="text/javascript" src="Date.js" defer></script> -->
 
 </head>

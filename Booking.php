@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Booking</title>
     <link rel="stylesheet" href="./Booking.css?v=<?php echo time(); ?>">
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
   <script type="text/javascript" src="Booking.js" defer></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJs1Pk4vKCGlr9RFXgxF7rOJ1ToG3jAew&callback=initMap" async defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   </head>
 <body>
@@ -30,7 +30,7 @@
               <span class="radio-tile">
                 <span class="radio-label">Traveling</span>
                 <span class="radio-icon">
-                  <img src="./icons/airplane-takeoff.svg" alt="" width="40px" height="40px">
+                  <img src="./goicons/airplane-takeoff.svg" alt="" width="40px" height="40px">
                 </span>
               </span>
             </label>
@@ -38,7 +38,7 @@
               <input  class="radio-input" type="radio" value="Returning" name="status"  onchange="handleLocation()">
               <span class="radio-tile">
                 <span class="radio-icon">
-                  <img src="./icons/airplane-arrival.svg" alt="" width="40px" height="40px">
+                  <img src="./goicons/airplane-arrival.svg" alt="" width="40px" height="40px">
                 </span>
                 <span class="radio-label">Returning</span>
               </span>
@@ -67,7 +67,7 @@
 
 
   <span onclick="openMap()" href="" id="mapIcon" style=" margin-left: -200px;">
-    <img src="icons/map.png" >
+    <img src="goicons/map.png" >
 </span>
 
 
@@ -100,52 +100,20 @@
 
   let marker = null;
   let map =null;
-  function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 24.089105, lng: 32.901920},
-                zoom: 8,
-                disableDefaultUI: true
-            });
-
-                // Add click event listener to the map
-                google.maps.event.addListener(map, 'click', function(event) {
-                placeMarker(event.latLng, map);
-            });
-
-            function placeMarker(location, map) {
-                // Create a marker at the clicked location
-                if(marker != null){
-                  marker.setMap(null);
-                }
-                marker = new google.maps.Marker({
-                    position: location,
-                    map: map
-                });
 
 
-                 // Reverse geocoding
-      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${location.lat()}&lon=${location.lng()}`)
-      .then(response => response.json())
-      .then(data => {
-
-        var country = data.address.country || '';
-        var city = data.address.city || '';
-        var state = data.address.state || '';
-        var road = data.address.road || '';
-        document.querySelector(".Location").value=country + " " + city + " "+state +" " + road;
-        document.querySelector('input[name="lat"]').value=location.lat();
-        document.querySelector('input[name="long"]').value=location.lng();
-
-        console.log(data); 
-      })
-      .catch(error => console.error(error));
-            }
-        }
   function openMap(){
+    
     document.getElementById("Background").style.display="inline";
     
     document.getElementById("map").style.display="inline";
+    map= L.map('map').setView([24.089105,32.901920], 12);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+      }).addTo(map);
 
+      map.on('click', onMapClick);
+    
     }
     
     function closeMap(){
@@ -199,6 +167,22 @@
       marker =  L.marker(e.latlng);
       marker.addTo(map);
       
+      // Reverse geocoding
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
+      .then(response => response.json())
+      .then(data => {
+
+        var country = data.address.country || '';
+        var city = data.address.city || '';
+        var state = data.address.state || '';
+        var road = data.address.road || '';
+        document.querySelector(".Location").value=country + " " + city + " "+state +" " + road;
+        document.querySelector('input[name="lat"]').value=e.latlng.lat;
+        document.querySelector('input[name="long"]').value=e.latlng.lng;
+
+        console.log(data); 
+      })
+      .catch(error => console.error(error));
      
     }
   </script>
@@ -223,8 +207,8 @@ travel from and <em>in location</em>
 put your location that you will 
 meet captain at
   </p>
-  <p class="bla"><strong>Returning:</strong> chose the airport that 
-your plane willl land in , <em>in location</em>
+  <p class="bla"><strong>Returning:</strong> choose the airport that 
+your plane will land in , <em>in location</em>
 put your distination that you need
 the captain to take you to</p>
 </div>

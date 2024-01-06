@@ -8,13 +8,13 @@
     <title>Loading</title>
     <link rel="stylesheet" href="css/loading.css">
     
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
 </head>
 <body>
 <div class="clouds"></div>
 
     <div class="plane">
-        <img src = "icons/airplane.png" alt = "plane">
+        <img src = "goicons/airplane.png" alt = "plane">
     </div>
 
 </body>

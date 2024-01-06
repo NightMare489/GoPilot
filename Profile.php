@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Profile.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
+
 
     <script src="./Profile.js?v=<?php echo time(); ?>" defer></script>
     <title>Profile</title>
@@ -143,7 +145,7 @@
                             </p>    
                             
                             <span id="Ephone" style="border-radius:60px; background-color:#0080C3;width:30px;margin-left:10px;margin-right:10px;cursor: pointer;" onclick="changePhone()">
-                                <img src="./icons/edit.svg" alt="edit" style="margin-left:3px">
+                                <img src="./goicons/edit.svg" alt="edit" style="margin-left:3px">
                             </span>
                         
                         <div  id="Efeild" style="visibility: hidden;">

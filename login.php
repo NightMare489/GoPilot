@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <link rel="stylesheet" href="login.css?v=<?php echo time(); ?>" />
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon" />
 
   <?php
   include 'backend/conn.php';
@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
   <body>
     <a href="index.php">
 
-      <img src = "icons/LogoBlue.png" id="LOGOIMG" class="LogoImg"/>
+      <img src = "goicons/LogoBlue.png" id="LOGOIMG" class="LogoImg"/>
     </a>
 
     <div class="mainBG"></div>
@@ -140,21 +140,21 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
 
             <div class="loginwebsite">
               <div class="loginWebsiteContent">
-              <img src="./icons/google.png" alt="Google Logo">
+              <img src="./goicons/google.png" alt="Google Logo">
             </div>
             </div>
 
 
             <div class="loginwebsite" style="background-color: #0080c3;">
               <div class="loginWebsiteContent" style="top:-10%;left:-10%">
-              <img src="./icons/facebook.png" alt="Facebook Logo">
+              <img src="./goicons/facebook.png" alt="Facebook Logo">
             </div>
             </div>
 
 
             <div class="loginwebsite" style="background-color: black;">
               <div class="loginWebsiteContent" style="top:20%;left:20%">
-              <img src="./icons/X.png" alt="X Logo">
+              <img src="./goicons/X.png" alt="X Logo">
             </div>
             </div>
 
@@ -213,21 +213,21 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
 
               <div class="loginwebsite">
                 <div class="loginWebsiteContent">
-                <img src="./icons/google.png" alt="Google Logo">
+                <img src="./goicons/google.png" alt="Google Logo">
               </div>
               </div>
   
   
               <div class="loginwebsite" style="background-color: #0080c3;">
                 <div class="loginWebsiteContent" style="top:-10%;left:-10%">
-                <img src="./icons/facebook.png" alt="Facebook Logo">
+                <img src="./goicons/facebook.png" alt="Facebook Logo">
               </div>
               </div>
   
   
               <div class="loginwebsite" style="background-color: black;">
                 <div class="loginWebsiteContent" style="top:20%;left:20%">
-                <img src="./icons/X.png" alt="X Logo">
+                <img src="./goicons/X.png" alt="X Logo">
               </div>
               </div>
   

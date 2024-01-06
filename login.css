@@ -1,7 +1,7 @@
 
 body {
   overflow: hidden;
-  background-image: url("./icons/BackGR.jpeg");
+  background-image: url("./goicons/BackGR.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -114,7 +114,7 @@ body {
 .mainBG{
   position: absolute;
   inset: 0 0 0 0;
-  background-image: url("./icons/LoginBack.png");
+  background-image: url("./goicons/LoginBack.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;

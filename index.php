@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOPilot</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
+
 </head>
 
 <script>
@@ -41,7 +43,7 @@ function initClock() {
     <body onload="initClock()">
         <div id="menu" class="card">
          <div id="logo">
-           <img src="icons/navlogo.png" alt="logo" id="logoimg" />
+           <img src="goicons/navlogo.png" alt="logo" id="logoimg" />
          </div>
          <div id="rightblock">
            <div >
@@ -60,7 +62,7 @@ function initClock() {
           <div style="margin-top: 12.5%; margin-left: 8%;">
 
             <div>
-                <img src="icons/Logo.png" alt="logo" id="logodisc" />
+                <img src="goicons/logo.png" alt="logo" id="logodisc" />
             </div>
     
     
@@ -101,7 +103,7 @@ function initClock() {
           
            
           </h3>
-          <span id="aboutusimg1"><img src="./icons/AboutUs.png" height="300px" width="300px" style="float: right; " ></span>
+          <span id="aboutusimg1"><img src="./goicons/AboutUs.png" height="300px" width="300px" style="float: right; " ></span>
 
           </div>
 

@@ -4,7 +4,7 @@
     <title>Date</title>
     <link rel="stylesheet" href="./nav.css?v=<?php echo time(); ?>">
 
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
   <script type="text/javascript" src="nav.js" defer></script>
 
   <?php
@@ -18,7 +18,7 @@
 <div id="menu" class="card">
       <div id="logo">
         <a href="index.php">
-          <img src="icons/navlogo.png" alt="logo" id="logoimg" />
+          <img src="goicons/navlogo.png" alt="logo" id="logoimg" />
         </a>
       </div>
       <div class="rightblock">

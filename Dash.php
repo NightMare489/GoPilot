@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
     <link rel="stylesheet" href="./Dash.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
+
 </head>
 <body>
     <?php
@@ -46,11 +48,11 @@
             </div>
 
             <div id="level2">
-            <img src="icons/logo.png" alt="logo">
+            <img src="goicons/logo.png" alt="logo">
             </div>
 
             <div id="level3">
-                <p class="label" >Your Ticket ID</p>
+                <p class="label" >Ticket ID</p>
                 <p class="value" style="color:white;margin-bottom:5px"><?php echo $row["TicketID"] ?></p>
             </div>
         </div>

@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Ticket.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="goicons/favicon.png" type="image/x-icon">
+
 
 
     <title>Ticket</title>
 </head>
 <body>
+
+<?php
+function formatSeconds($seconds) {
+    $days = floor($seconds / (24 * 3600));
+    $hours = floor(($seconds % (24 * 3600)) / 3600);
+    $minutes = floor(($seconds % 3600) / 60);
+
+    $formattedTime = '';
+
+    if ($days > 0) {
+        $formattedTime .= $days . ' day' . ($days > 1 ? 's' : '') . ' ';
+    }
+
+    if (!empty($formattedTime) || $hours > 0) {
+        $formattedTime .= $hours . ' hour' . ($hours > 1 ? 's' : '') . ' ';
+    }
+
+    $formattedTime .= $minutes . ' minute' . ($minutes > 1 ? 's' : '');
+
+    return $formattedTime;
+}
+
+
+?>
+
+
     <?php 
     include 'nav.php';
     include 'backend/conn.php';
@@ -58,31 +86,29 @@
             $stmt->bindParam(":airportname",$airportFrom);
             $stmt->execute();
             $results=$stmt->fetchAll();
-            $origin = urlencode($results[0]["lat"].",".$results[0]["lon"]);
-            $destination = urlencode($lat.",".$long);
+            $origin = urlencode($results[0]["lon"].",".$results[0]["lat"]);
+            $destination = urlencode($long.",".$lat);
         }else{
             $stmt->bindParam(":airportname",$airportTo);
             $stmt->execute();
             $results=$stmt->fetchAll();
-            $origin = urlencode($lat.",".$long);
-            $destination = urlencode($results[0]["lat"].",".$results[0]["lon"]);
+            $origin = urlencode($long.",".$lat);
+            $destination = urlencode($results[0]["lon"].",".$results[0]["lat"]);
 
         }
       
-        $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=$origin&destinations=$destination&key=AIzaSyDJs1Pk4vKCGlr9RFXgxF7rOJ1ToG3jAew";
+        $url = "https://routing.openstreetmap.de/routed-car/route/v1/driving/$origin;$destination?overview=false&alternatives=false&steps=false";
         
+
         $response = file_get_contents($url);
         $data = json_decode($response, true);
         
-        if (!empty($data['rows'][0]['elements'][0])) {
-                $distanceVal = $data['rows'][0]['elements'][0]['distance']['value'];
-                $distanceTxt = $data['rows'][0]['elements'][0]['distance']['text'];
+        $distanceVal = $data['routes'][0]['distance'];
+        $durationVal = $data['routes'][0]['duration'];
 
-                $durationVal = $data['rows'][0]['elements'][0]['duration']['value'];
-                $durationTxt = $data['rows'][0]['elements'][0]['duration']['text'];
+        $durationTxt = formatSeconds($durationVal);
                 
                 
-            }
             
                 
         
@@ -174,11 +200,11 @@
     <div id="container">
     <!-- level 1 -->
     <div style="background-color: #003F60;" id="level1">
-      <img src="icons/logo.png" alt="logo" >
+      <img src="goicons/logo.png" alt="logo" >
 
 
       <div id="Llev1">
-            <p style="margin-bottom: 0px;">Your Ticket ID</p>
+            <p style="margin-bottom: 0px;">Ticket ID</p>
             <p style="margin-top: 5px ;"><?php
 
 
@@ -197,7 +223,7 @@
     echo $locationFrom;
     ?></p>
 
-     <img src="icons/Car.svg" alt="car" id="Car">
+     <img src="goicons/Car.svg" alt="car" id="Car">
 
      <p id="Ltext"><?php
      
